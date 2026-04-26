@@ -6,3 +6,9 @@ node_modules/
 .dev.vars
 *.log
 .DS_Store
+# 빌드/배포 산출물
+*.enc
+*.zip
+*.bak
+# 루트 중복 파일
+/version.json

@@ -1,9 +1,0 @@
-{
-  "version": "1.7.0",
-  "release_date": "2026-04-26",
-  "update_note": "v1.7.0 - 자동업데이트 풀시스템 통합 (로그인/스플래시/버전체크/AES암호화)",
-  "main_script": "messenger_allInOne.enc",
-  "encrypted": true,
-  "force_update": false,
-  "enc_sha256": ""
-}
