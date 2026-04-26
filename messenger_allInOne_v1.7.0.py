@@ -9274,7 +9274,7 @@ def _show_update_dialog(parent: tk.Misc, info) -> bool:
     dlg.attributes("-topmost", True)
     dlg.grab_set()
 
-    W, H = 460, 340
+    W, H = 460, 400
     sw = dlg.winfo_screenwidth()
     sh = dlg.winfo_screenheight()
     dlg.geometry(f"{W}x{H}+{(sw - W) // 2}+{(sh - H) // 2}")
@@ -9338,14 +9338,7 @@ def _show_update_dialog(parent: tk.Misc, info) -> bool:
     ).pack(anchor="w")
 
     # ── SHA-256 (있을 때만) ───────────────────────────────────────
-    if getattr(info, "enc_sha256", ""):
-        tk.Label(
-            dlg,
-            text=f"SHA-256: {info.enc_sha256[:20]}...",
-            font=("Consolas", 8),
-            bg=_SC["bg"],
-            fg=_SC["sub"],
-        ).pack(pady=(6, 0))
+    # SHA-256 생략 (공간 절약)
 
     # ── 안내 텍스트 ───────────────────────────────────────────────
     notice = (
