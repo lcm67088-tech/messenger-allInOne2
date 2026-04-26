@@ -155,8 +155,15 @@ def _make_headers() -> dict:
 
 
 def _api_url(filename: str) -> str:
-    """GitHub Contents API URL 생성"""
-    encoded = urllib.parse.quote(filename, safe="")
+    """GitHub Contents API URL 생성.
+    - version.json → build/version.json (레포 내 실제 경로)
+    - messenger_allInOne.enc → 루트 (git add -f 로 올린 위치)
+    """
+    # version.json 은 build/ 폴더 안에 있음
+    if filename == "version.json":
+        filename = "build/version.json"
+
+    encoded = urllib.parse.quote(filename, safe="/")
     return (
         f"https://api.github.com/repos/{GITHUB_OWNER}/{GITHUB_REPO}"
         f"/contents/{encoded}?ref={GITHUB_BRANCH}"
