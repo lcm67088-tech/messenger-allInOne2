@@ -1,32 +1,25 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-login_window.py  —  메신저 올인원 로그인 GUI  v1.5.1
+login_window.py  —  메신저 올인원 로그인 GUI  v1.7.0
 ────────────────────────────────────────────────────────────
-구글 스프레드시트 기반 ID/PW 인증 창.
-인증 성공 시 True, 실패/취소 시 False 반환.
-
-▸ config_path 인수로 config.json 경로 전달 → sheet_url 자동 연동
-▸ auth_checker.py (urllib 전용) 사용 — requests 의존 없음
-▸ 최대 5회 실패 시 강제 종료
-
-변경 이력:
-  v1.5.1 (2026-04-26) — 메신저 올인원 전용 적용
-    · 타이틀/아이콘을 메신저 올인원으로 커스터마이징
-    · config_path 인수 지원 (sheet_url 자동 로드)
-    · 메신저 올인원 PALETTE 색상과 동일 톤 적용
-  v1.5.0 (2026-04-26) — 기반 템플릿 (auto-update-template v1.5.0)
-────────────────────────────────────────────────────────────
+v1.7.0 (2026-04-26)
+  · 카드형 레이아웃으로 완전 재설계
+  · 다크 테마 PALETTE 메인앱과 완전 동일 통일
+  · 폰트 Malgun Gothic 10pt 기준 통일 (8/11/13pt 혼재 제거)
+  · pack 단일 방향 사용 - grid 혼용 제거 (정렬 깨짐 해소)
+  · 이모지 아이콘 폰트 28pt → 22pt 조정
+  · 입력창 포커스 하이라이트 효과 추가
+  · 비밀번호 보기/숨기기 토글 추가
+  · 로그인 버튼 hover 효과 추가
 """
 
 import tkinter as tk
 import tkinter.ttk as ttk
 import threading
 import sys
-import os
 from pathlib import Path
 
-# auth_checker 임포트 (core/ 패키지로 설치되어 있음)
 try:
     from core.auth_checker import (
         verify, AuthResult,
@@ -35,7 +28,6 @@ try:
     _AUTH_OK = True
 except ImportError:
     try:
-        # core/ 폴더를 sys.path에 추가 후 재시도
         _core_dir = str(Path(__file__).parent.resolve())
         if _core_dir not in sys.path:
             sys.path.insert(0, _core_dir)
@@ -47,39 +39,41 @@ except ImportError:
     except ImportError:
         _AUTH_OK = False
 
-
-# ── 색상 팔레트 (메신저 올인원 PALETTE 와 동일 톤) ──────────
+# ── 색상 팔레트 (메인앱 PALETTE 완전 동일) ──────────────────────
 C = {
-    "bg":       "#1a1a2e",
-    "card":     "#0f3460",
-    "accent":   "#e94560",
-    "accent2":  "#533483",
-    "green":    "#4ecca3",
-    "yellow":   "#f5a623",
-    "text":     "#eaeaea",
-    "sub":      "#a8a8b3",
-    "input_bg": "#16213e",
-    "border":   "#533483",
+    "bg":       "#1E1E2E",   # 메인 배경
+    "sidebar":  "#161622",   # 헤더 배경 (더 깊은 다크)
+    "card":     "#2A2A3E",   # 카드/패널
+    "card2":    "#242438",   # 입력창 배경
+    "border":   "#383850",   # 일반 테두리
+    "border2":  "#4A4A65",   # 강조 테두리 (포커스)
+    "primary":  "#5C7CFA",   # 블루 포인트
+    "primary2": "#4568F5",   # 블루 호버
+    "success":  "#51CF66",   # 성공 초록
+    "danger":   "#FF6B6B",   # 위험 레드
+    "warning":  "#FFD43B",   # 경고 황색
+    "text":     "#E8E8F0",   # 기본 텍스트
+    "text2":    "#A0A0B8",   # 보조 텍스트
+    "muted":    "#6E6E88",   # 힌트 텍스트
 }
 
-MAX_ATTEMPTS = 5   # 최대 로그인 시도 횟수
+# ── 폰트 (Malgun Gothic 10pt 기준 통일) ──────────────────────────
+_FF      = "Malgun Gothic"
+F_TITLE  = (_FF, 13, "bold")   # 앱 타이틀
+F_LABEL  = (_FF, 10, "bold")   # 입력창 레이블
+F_INPUT  = (_FF, 10)           # 입력창 텍스트
+F_BTN    = (_FF, 10, "bold")   # 버튼
+F_MSG    = (_FF, 10)           # 상태 메시지
+F_SMALL  = (_FF,  9)           # 하단 안내
+F_ICON   = ("Segoe UI Emoji", 22)  # 아이콘 이모지
+
+MAX_ATTEMPTS = 5
 
 
 class LoginWindow(tk.Tk):
-    """
-    메신저 올인원 로그인 창.
-    .run() 을 호출하면 인증 결과(bool)를 반환.
-
-    Parameters
-    ----------
-    config_path : str | Path | None
-        Config/config.json 경로.
-        전달하면 sheet_url 을 읽어 인증 URL 을 자동 교체.
-    """
-
     def __init__(self, config_path=None):
         super().__init__()
-        self.title("메신저 올인원 — 로그인")
+        self.title("메신저 올인원")
         self.configure(bg=C["bg"])
         self.resizable(False, False)
         self.attributes("-topmost", True)
@@ -87,13 +81,15 @@ class LoginWindow(tk.Tk):
         self._result   = False
         self._attempts = 0
         self._locked   = False
+        self._pw_visible = False
 
-        W, H = 420, 500
+        # 창 크기 & 화면 중앙 배치
+        W, H = 400, 500
         sw = self.winfo_screenwidth()
         sh = self.winfo_screenheight()
-        self.geometry(f"{W}x{H}+{(sw-W)//2}+{(sh-H)//2}")
+        self.geometry(f"{W}x{H}+{(sw - W) // 2}+{(sh - H) // 2}")
 
-        # config.json 에서 sheet_url 로드
+        # config.json sheet_url 연동
         if _AUTH_OK and config_path is not None:
             try:
                 load_sheet_url_from_config(config_path)
@@ -103,211 +99,294 @@ class LoginWindow(tk.Tk):
         self._build_ui()
         self.protocol("WM_DELETE_WINDOW", self._on_close)
 
-    # ──────────────────────────────────────────
+    # ──────────────────────────────────────────────────────────────
     # UI 구성
-    # ──────────────────────────────────────────
+    # ──────────────────────────────────────────────────────────────
     def _build_ui(self):
-        # 상단 액센트 바
-        tk.Frame(self, bg=C["accent"], height=4).pack(fill="x")
+        # ① 상단 포인트 바 (3px)
+        tk.Frame(self, bg=C["primary"], height=3).pack(fill="x", side="top")
 
-        body = tk.Frame(self, bg=C["bg"], padx=44)
-        body.pack(fill="both", expand=True)
+        # ② 헤더 영역
+        self._build_header()
 
-        # 아이콘 + 타이틀
-        tk.Label(body,
+        # ③ 구분선
+        tk.Frame(self, bg=C["border"], height=1).pack(fill="x")
+
+        # ④ 폼 카드 영역
+        self._build_form()
+
+        # ⑤ 하단 안내
+        self._build_footer()
+
+    def _build_header(self):
+        hdr = tk.Frame(self, bg=C["sidebar"], pady=20)
+        hdr.pack(fill="x")
+
+        # 아이콘 + 타이틀을 수직 정렬로 중앙에 표시
+        tk.Label(
+            hdr,
             text="✉",
-            font=("Segoe UI Emoji", 38),
-            bg=C["bg"], fg=C["accent"],
-        ).pack(pady=(28, 2))
-
-        tk.Label(body,
-            text="메신저 올인원",
-            font=("Malgun Gothic", 15, "bold"),
-            bg=C["bg"], fg=C["text"],
+            font=F_ICON,
+            bg=C["sidebar"],
+            fg=C["primary"],
         ).pack()
 
-        tk.Label(body,
-            text="허가된 사용자만 이용할 수 있습니다",
-            font=("Malgun Gothic", 9),
-            bg=C["bg"], fg=C["sub"],
-        ).pack(pady=(2, 18))
+        tk.Label(
+            hdr,
+            text="메신저 올인원",
+            font=F_TITLE,
+            bg=C["sidebar"],
+            fg=C["text"],
+        ).pack(pady=(6, 3))
 
-        # 구분선
-        tk.Frame(body, bg=C["border"], height=1).pack(fill="x", pady=(0, 18))
+        tk.Label(
+            hdr,
+            text="허가된 사용자만 이용 가능합니다",
+            font=F_SMALL,
+            bg=C["sidebar"],
+            fg=C["muted"],
+        ).pack()
 
-        # ── 아이디 입력 ────────────────────────────────────
-        tk.Label(body,
+    def _build_form(self):
+        body = tk.Frame(self, bg=C["bg"], padx=36, pady=24)
+        body.pack(fill="both", expand=True)
+
+        # ── 아이디 입력 ──────────────────────────────────────────
+        tk.Label(
+            body,
             text="아이디",
-            font=("Malgun Gothic", 9, "bold"),
-            bg=C["bg"], fg=C["sub"],
+            font=F_LABEL,
+            bg=C["bg"],
+            fg=C["text2"],
             anchor="w",
-        ).pack(fill="x")
+        ).pack(fill="x", pady=(0, 5))
+
+        id_frame = tk.Frame(body, bg=C["border"], pady=1, padx=1)
+        id_frame.pack(fill="x", pady=(0, 16))
+
+        id_inner = tk.Frame(id_frame, bg=C["card2"])
+        id_inner.pack(fill="x")
 
         self._id_var = tk.StringVar()
-        id_frame = tk.Frame(body, bg=C["border"], pady=1, padx=1)
-        id_frame.pack(fill="x", pady=(3, 12))
-        self._id_entry = tk.Entry(id_frame,
+        self._id_entry = tk.Entry(
+            id_inner,
             textvariable=self._id_var,
-            font=("Malgun Gothic", 11),
-            bg=C["input_bg"], fg=C["text"],
-            insertbackground=C["text"],
-            relief="flat", bd=7,
+            font=F_INPUT,
+            bg=C["card2"],
+            fg=C["text"],
+            insertbackground=C["primary"],
+            relief="flat",
+            bd=8,
         )
         self._id_entry.pack(fill="x")
 
-        # ── 비밀번호 입력 ──────────────────────────────────
-        tk.Label(body,
+        # ── 비밀번호 입력 ────────────────────────────────────────
+        tk.Label(
+            body,
             text="비밀번호",
-            font=("Malgun Gothic", 9, "bold"),
-            bg=C["bg"], fg=C["sub"],
+            font=F_LABEL,
+            bg=C["bg"],
+            fg=C["text2"],
             anchor="w",
-        ).pack(fill="x")
+        ).pack(fill="x", pady=(0, 5))
+
+        pw_frame = tk.Frame(body, bg=C["border"], pady=1, padx=1)
+        pw_frame.pack(fill="x", pady=(0, 6))
+
+        pw_inner = tk.Frame(pw_frame, bg=C["card2"])
+        pw_inner.pack(fill="x")
 
         self._pw_var = tk.StringVar()
-        pw_frame = tk.Frame(body, bg=C["border"], pady=1, padx=1)
-        pw_frame.pack(fill="x", pady=(3, 6))
-        self._pw_entry = tk.Entry(pw_frame,
+        self._pw_entry = tk.Entry(
+            pw_inner,
             textvariable=self._pw_var,
-            font=("Malgun Gothic", 11),
-            bg=C["input_bg"], fg=C["text"],
-            insertbackground=C["text"],
-            relief="flat", bd=7, show="●",
+            font=F_INPUT,
+            bg=C["card2"],
+            fg=C["text"],
+            insertbackground=C["primary"],
+            relief="flat",
+            bd=8,
+            show="●",
         )
-        self._pw_entry.pack(fill="x")
+        self._pw_entry.pack(side="left", fill="x", expand=True)
+
+        # 비밀번호 보기 토글 버튼
+        self._eye_btn = tk.Button(
+            pw_inner,
+            text="👁",
+            font=("Segoe UI Emoji", 10),
+            bg=C["card2"],
+            fg=C["muted"],
+            relief="flat",
+            bd=0,
+            cursor="hand2",
+            padx=6,
+            command=self._toggle_pw,
+            activebackground=C["card2"],
+            activeforeground=C["text2"],
+        )
+        self._eye_btn.pack(side="right")
+
+        # 포커스 하이라이트 효과
+        self._id_entry.bind("<FocusIn>",  lambda e: id_frame.config(bg=C["primary"]))
+        self._id_entry.bind("<FocusOut>", lambda e: id_frame.config(bg=C["border"]))
+        self._pw_entry.bind("<FocusIn>",  lambda e: pw_frame.config(bg=C["primary"]))
+        self._pw_entry.bind("<FocusOut>", lambda e: pw_frame.config(bg=C["border"]))
 
         # 엔터키 바인딩
         self._id_entry.bind("<Return>", lambda e: self._pw_entry.focus())
         self._pw_entry.bind("<Return>", lambda e: self._on_login())
 
-        # ── 상태 메시지 ────────────────────────────────────
+        # ── 상태 메시지 ─────────────────────────────────────────
         self._msg_var = tk.StringVar(value="")
-        self._msg_lbl = tk.Label(body,
+        self._msg_lbl = tk.Label(
+            body,
             textvariable=self._msg_var,
-            font=("Malgun Gothic", 9),
-            bg=C["bg"], fg=C["accent"],
-            wraplength=300, justify="center",
+            font=F_MSG,
+            bg=C["bg"],
+            fg=C["danger"],
+            wraplength=310,
+            justify="center",
+            anchor="center",
         )
-        self._msg_lbl.pack(pady=(10, 0))
+        self._msg_lbl.pack(pady=(10, 0), fill="x")
 
-        # ── 로그인 버튼 ────────────────────────────────────
-        self._login_btn = tk.Button(body,
+        # ── 로그인 버튼 ─────────────────────────────────────────
+        self._login_btn = tk.Button(
+            body,
             text="로그인",
             command=self._on_login,
-            bg=C["accent"], fg="#ffffff",
-            font=("Malgun Gothic", 11, "bold"),
-            relief="flat", cursor="hand2",
-            pady=10, activebackground="#c73652",
+            bg=C["primary"],
+            fg=C["text"],
+            font=F_BTN,
+            relief="flat",
+            cursor="hand2",
+            pady=10,
+            activebackground=C["primary2"],
+            activeforeground=C["text"],
         )
-        self._login_btn.pack(fill="x", pady=(14, 0))
+        self._login_btn.pack(fill="x", pady=(16, 0))
 
-        # 로딩 프로그레스바 (기본 숨김)
-        self._progress = ttk.Progressbar(body, mode="indeterminate", length=330)
+        # 버튼 hover 효과
+        self._login_btn.bind("<Enter>", lambda e: self._login_btn.config(bg=C["primary2"]))
+        self._login_btn.bind("<Leave>", lambda e: self._login_btn.config(bg=C["primary"]))
 
-        # ── 하단 안내 ──────────────────────────────────────
-        tk.Frame(body, bg=C["border"], height=1).pack(fill="x", pady=(22, 10))
-        tk.Label(body,
-            text="계정 문의: 관리자에게 연락하세요",
-            font=("Malgun Gothic", 8),
-            bg=C["bg"], fg=C["sub"],
-        ).pack()
+        # ── 진행 바 (로그인 중) ──────────────────────────────────
+        style = ttk.Style()
+        style.theme_use("default")
+        style.configure(
+            "Login.Horizontal.TProgressbar",
+            troughcolor=C["card"],
+            background=C["primary"],
+            bordercolor=C["border"],
+            lightcolor=C["primary"],
+            darkcolor=C["primary"],
+        )
+        self._progress = ttk.Progressbar(
+            body,
+            mode="indeterminate",
+            style="Login.Horizontal.TProgressbar",
+        )
+        # 처음엔 숨겨둠 (로그인 클릭 시 pack)
 
-        # 포커스
         self._id_entry.focus()
 
-    # ──────────────────────────────────────────
-    # 로그인 처리
-    # ──────────────────────────────────────────
+    def _build_footer(self):
+        foot = tk.Frame(self, bg=C["sidebar"], pady=10)
+        foot.pack(fill="x", side="bottom")
+
+        tk.Frame(foot, bg=C["border"], height=1).pack(fill="x", pady=(0, 8))
+        tk.Label(
+            foot,
+            text="계정 문의: 관리자에게 연락하세요",
+            font=F_SMALL,
+            bg=C["sidebar"],
+            fg=C["muted"],
+        ).pack()
+
+    # ──────────────────────────────────────────────────────────────
+    # 이벤트 핸들러
+    # ──────────────────────────────────────────────────────────────
+    def _toggle_pw(self):
+        self._pw_visible = not self._pw_visible
+        self._pw_entry.config(show="" if self._pw_visible else "●")
+        self._eye_btn.config(fg=C["primary"] if self._pw_visible else C["muted"])
+
     def _on_login(self):
         if self._locked:
             return
+        uid = self._id_var.get().strip()
+        pw  = self._pw_var.get().strip()
 
-        user_id  = self._id_var.get().strip()
-        password = self._pw_var.get().strip()
-
-        if not user_id or not password:
-            self._set_msg("아이디와 비밀번호를 모두 입력하세요.", C["yellow"])
+        if not uid or not pw:
+            self._set_msg("아이디와 비밀번호를 모두 입력하세요.", C["warning"])
             return
 
-        # UI 잠금 + 로딩 표시
         self._locked = True
         self._login_btn.config(state="disabled", text="확인 중...")
-        self._set_msg("인증 서버에 연결 중...", C["yellow"])
-        self._progress.pack(pady=(8, 0))
-        self._progress.start(10)
+        self._set_msg("인증 서버에 연결 중...", C["text2"])
+        self._progress.pack(fill="x", pady=(10, 0))
+        self._progress.start(12)
         self.update()
 
-        # auth_checker 없으면 임시 통과 (개발 모드)
         if not _AUTH_OK:
-            self.after(500, lambda: self._on_verify_done(
-                _FallbackAuthInfo(user_id)
-            ))
+            # 개발 모드: 0.6초 후 바로 성공 처리
+            self.after(600, lambda: self._on_verify_done(_FallbackAuth(uid)))
             return
 
-        # 백그라운드에서 인증
         def do_verify():
-            info = verify(user_id, password)
+            info = verify(uid, pw)
             self.after(0, lambda: self._on_verify_done(info))
 
         threading.Thread(target=do_verify, daemon=True).start()
 
     def _on_verify_done(self, info):
-        # 로딩 해제
         self._progress.stop()
         self._progress.pack_forget()
         self._locked = False
         self._login_btn.config(state="normal", text="로그인")
 
-        # auth_checker 없는 경우 fallback
         if not _AUTH_OK:
-            self._set_msg("✅ 로그인 성공! (개발 모드)", C["green"])
-            self.update()
+            self._set_msg("✅ 로그인 성공 (개발 모드)", C["success"])
             self._result = True
-            self.after(700, self.destroy)
+            self.after(600, self.destroy)
             return
 
         result = getattr(info, "result", None)
 
         if result == AuthResult.OK:
-            # 성공
-            expire_txt = f" (만료일: {info.expire})" if getattr(info, "expire", "") else ""
-            self._set_msg(f"✅ 로그인 성공!{expire_txt}", C["green"])
-            self.update()
+            exp = f"  (만료: {info.expire})" if getattr(info, "expire", "") else ""
+            self._set_msg(f"✅ 로그인 성공{exp}", C["success"])
             self._result = True
             self.after(700, self.destroy)
 
         elif result == AuthResult.OFFLINE:
-            self._set_msg(
-                "⚠️ 인터넷 연결을 확인하세요.\n인증 서버에 접속할 수 없습니다.",
-                C["yellow"],
-            )
+            self._set_msg("⚠ 인터넷 연결을 확인하세요.", C["warning"])
             self._attempts += 1
             self._check_lockout()
 
         elif result == AuthResult.WRONG_ID_PW:
             self._attempts += 1
             remain = MAX_ATTEMPTS - self._attempts
+            msg = "❌ 아이디 또는 비밀번호 오류"
             if remain > 0:
-                self._set_msg(
-                    f"❌ {info.message}\n(남은 시도: {remain}회)",
-                    C["accent"],
-                )
+                msg += f"  (남은 시도: {remain}회)"
+            self._set_msg(msg, C["danger"])
             self._pw_var.set("")
             self._pw_entry.focus()
             self._check_lockout()
 
         else:
-            # EXPIRED / INACTIVE / SHEET_ERROR
-            self._set_msg(f"🚫 {info.message}", C["accent"])
+            self._set_msg(f"🚫 {info.message}", C["danger"])
             self._attempts += 1
             self._pw_var.set("")
             self._check_lockout()
 
     def _check_lockout(self):
-        """최대 시도 초과 시 창 닫기"""
         if self._attempts >= MAX_ATTEMPTS:
             self._set_msg(
-                f"❌ 로그인 {MAX_ATTEMPTS}회 실패.\n프로그램을 종료합니다.",
-                C["accent"],
+                f"❌ {MAX_ATTEMPTS}회 실패 — 프로그램을 종료합니다.",
+                C["danger"],
             )
             self.update()
             self.after(2000, self.destroy)
@@ -319,38 +398,23 @@ class LoginWindow(tk.Tk):
         self.update_idletasks()
 
     def _on_close(self):
-        """X 버튼 클릭 → 인증 실패 처리"""
         self._result = False
         self.destroy()
 
-    # ──────────────────────────────────────────
-    # 외부 호출 진입점
-    # ──────────────────────────────────────────
     def run(self) -> bool:
-        """
-        로그인 창 실행.
-        반환: True = 인증 성공, False = 실패/취소
-        """
         self.mainloop()
         return self._result
 
 
-# ──────────────────────────────────────────────
-# auth_checker 없을 때 사용할 Fallback 객체
-# ──────────────────────────────────────────────
-class _FallbackAuthInfo:
-    """auth_checker 임포트 실패 시 임시 성공 반환용."""
-    def __init__(self, uid: str):
-        self.result  = None    # AuthResult.OK 와 구분되도록 None
-        self.message = "개발 모드 (auth_checker 없음)"
+# ── 개발 모드용 폴백 인증 객체 ────────────────────────────────────
+class _FallbackAuth:
+    def __init__(self, uid):
+        self.result  = None
+        self.message = "개발 모드"
         self.user_id = uid
         self.expire  = ""
 
 
-# ──────────────────────────────────────────────
-# 단독 테스트
-# ──────────────────────────────────────────────
 if __name__ == "__main__":
     win = LoginWindow()
-    ok  = win.run()
-    print("인증 결과:", "성공" if ok else "실패/취소")
+    print("결과:", "성공" if win.run() else "실패")

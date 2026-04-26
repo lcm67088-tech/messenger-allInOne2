@@ -1679,52 +1679,54 @@ STATS_PATH  = CONFIG_DIR / "stats.json"
 
 # ── UI 팔레트 (v1.10 라이트 테마 — community_poster 벤치마킹) ─
 PALETTE = {
-    # ── 배경 계층 (라이트 테마 — community_poster v5.20 벤치마킹) ──
-    "bg":       "#F8F9FA",   # 메인 배경 (Tailwind gray-50)
-    "sidebar":  "#1E293B",   # 사이드바 다크 슬레이트 (유지)
-    "card":     "#FFFFFF",   # 카드/패널 흰색
-    "card2":    "#F1F5F9",   # 입력창 배경 (slate-100)
+    # ── 배경 계층 (다크 테마 — VS Code Dark+ 기반) ───────────
+    "bg":       "#1E1E2E",   # 메인 배경 (catppuccin base)
+    "sidebar":  "#161622",   # 사이드바 (더 깊은 다크)
+    "card":     "#2A2A3E",   # 카드/패널
+    "card2":    "#242438",   # 입력창 배경
     # ── 테두리/구분선 ─────────────────────────────────────────
-    "border":   "#E2E8F0",   # 일반 테두리 (slate-200)
-    "border2":  "#CBD5E1",   # 강조 테두리 (slate-300)
+    "border":   "#383850",   # 일반 테두리
+    "border2":  "#4A4A65",   # 강조 테두리
     # ── 인터랙션 ─────────────────────────────────────────────
-    "hover":    "#F1F5F9",   # hover 배경 (slate-100)
-    "active":   "#E2E8F0",   # 활성 배경 (slate-200)
-    "selected": "#DBEAFE",   # 트리뷰 선택 행 (blue-100)
-    # ── 포인트 컬러 (Tailwind CSS 체계) ──────────────────────
-    "primary":  "#2563EB",   # 블루 포인트 (blue-600, 흰글 5.2:1)
-    "primary2": "#1D4ED8",   # 블루 호버  (blue-700, 흰글 6.7:1)
-    "success":  "#22C55E",   # 성공 초록  배경/뱃지용 (green-500)
-    "success_text": "#15803D", # 성공 텍스트용 (green-700, 대비 7.4:1)
-    "warning_text": "#B45309",   # 경고 텍스트용 (amber-700, white 대비 5.02:1 ✅)
-    "warning":  "#F59E0B",   # 경고 앰버  (amber-500)
-    "danger":   "#DC2626",   # 위험 레드  (red-600, 흰글 4.8:1)
-    "accent":   "#8B5CF6",   # 강조 바이올렛 (violet-500)
+    "hover":    "#2E2E45",   # hover 배경
+    "active":   "#35354E",   # 활성 배경
+    "selected": "#2D3A6B",   # 트리뷰 선택 행
+    # ── 포인트 컬러 ──────────────────────────────────────────
+    "primary":  "#5C7CFA",   # 블루 포인트 (흰글 대비 ✅)
+    "primary2": "#4568F5",   # 블루 호버
+    "success":  "#51CF66",   # 성공 초록
+    "success_text": "#51CF66", # 성공 텍스트
+    "warning_text": "#FFD43B", # 경고 텍스트
+    "warning":  "#FFD43B",   # 경고 앰버
+    "danger":   "#FF6B6B",   # 위험 레드
+    "accent":   "#CC5DE8",   # 강조 바이올렛
     # ── 텍스트 계층 ───────────────────────────────────────────
-    "text":     "#1E293B",   # 기본 텍스트 (slate-800)
-    "text2":    "#64748B",   # 보조 텍스트 (slate-500)
-    "muted":    "#475569",   # 힌트 텍스트 (slate-600, card 대비 7.58:1 ✅)
-    # ── 사이드바 전용 (다크 bg 위 텍스트) ────────────────────
-    "sidebar_text": "#F1F5F9",  # 사이드바 기본 텍스트 (밝은 slate)
-    # ── 플랫폼 원색 (유지) ────────────────────────────────────
+    "text":     "#E8E8F0",   # 기본 텍스트 (밝고 선명)
+    "text2":    "#A0A0B8",   # 보조 텍스트
+    "muted":    "#6E6E88",   # 힌트 텍스트
+    # ── 사이드바 전용 ────────────────────────────────────────
+    "sidebar_text": "#C8C8E0",  # 사이드바 텍스트
+    # ── 플랫폼 원색 ────────────────────────────────────────
     "kakao":    "#FEE500",
     "telegram": "#229ED9",
 }
 
 # ── 폰트 상수 (v1.08 통일) ───────────────────────────────
-_FF  = "Malgun Gothic"         # 기본 한글 폰트
+# 폰트 패밀리 (윈도우 우선, 폴백 포함)
+_FF  = "Malgun Gothic"         # 기본 한글 폰트 (Windows)
 _FFM = "Consolas"              # 모노스페이스
-F_TITLE  = (_FF,  13, "bold")  # 탭 제목 (13pt bold)
-F_HEAD   = (_FF,  10, "bold")  # 섹션 헤더 (10pt bold)
-F_BODY   = (_FF,  10)          # 본문 (10pt)
-F_LABEL  = (_FF,   9)          # 라벨 (9pt)
-F_SMALL  = (_FF,   9)          # 보조/힌트 (9pt, 8pt→9pt 가독성 개선)
-F_BTN    = (_FF,   9, "bold")  # 버튼 (9pt bold)
-F_BTN_S  = (_FF,   9)          # 소형 버튼 (9pt, 8pt→9pt 통일)
-F_MONO   = (_FFM,  9)          # 입력창/좌표 값 (9pt)
-F_MONO_S = (_FFM,  9)          # 소형 모노 (9pt, 8pt→9pt 통일)
-F_MONO_B = (_FFM, 10, "bold")  # 굵은 모노 (미리보기 등)
-F_ICON   = ("Segoe UI Emoji", 18)  # 이모지/아이콘
+# ── 폰트 상수 (10pt 기준 통일) ──────────────────────────
+F_TITLE  = (_FF,  12, "bold")  # 탭 제목
+F_HEAD   = (_FF,  10, "bold")  # 섹션 헤더
+F_BODY   = (_FF,  10)          # 본문
+F_LABEL  = (_FF,  10)          # 라벨 (9→10 통일)
+F_SMALL  = (_FF,   9)          # 보조/힌트
+F_BTN    = (_FF,  10, "bold")  # 버튼
+F_BTN_S  = (_FF,   9, "bold")  # 소형 버튼
+F_MONO   = (_FFM, 10)          # 입력창/좌표 값
+F_MONO_S = (_FFM,  9)          # 소형 모노
+F_MONO_B = (_FFM, 10, "bold")  # 굵은 모노
+F_ICON   = ("Segoe UI Emoji",  16)  # 이모지/아이콘
 
 # ── 사이드바 탭 ─────────────────────────────────────────────
 SIDEBAR_TABS = [
@@ -2176,77 +2178,85 @@ class App(tk.Tk):
 
     # ── 헤더 ────────────────────────────────────────────────
     def _build_header(self):
-        hdr = tk.Frame(self, bg=PALETTE["sidebar"], height=58)
+        hdr = tk.Frame(self, bg=PALETTE["sidebar"], height=54)
         hdr.pack(fill=tk.X, side=tk.TOP)
         hdr.pack_propagate(False)
+        # 좌측 포인트 바 (primary 색상 세로 3px)
+        tk.Frame(hdr, bg=PALETTE["primary"], width=3
+                 ).pack(fill=tk.Y, side=tk.LEFT)
         # 하단 구분선
         tk.Frame(hdr, bg=PALETTE["border"], height=1
                  ).place(relx=0, rely=1.0, relwidth=1.0, anchor="sw")
 
-        tk.Label(hdr, text="💬", font=F_ICON,
-                 bg=PALETTE["sidebar"], fg=PALETTE["sidebar_text"]
-                 ).pack(side=tk.LEFT, padx=(18, 8), pady=14)
+        # 아이콘
+        tk.Label(hdr, text="💬",
+                 font=("Segoe UI Emoji", 16),
+                 bg=PALETTE["sidebar"], fg=PALETTE["primary"]
+                 ).pack(side=tk.LEFT, padx=(14, 6))
 
+        # 앱 타이틀
         tk.Label(hdr, text="메신저 올인원",
-                 font=F_TITLE,
+                 font=(_FF, 12, "bold"),
                  bg=PALETTE["sidebar"], fg=PALETTE["sidebar_text"]
-                 ).pack(side=tk.LEFT, pady=14)
+                 ).pack(side=tk.LEFT)
 
+        # 버전 태그
         tk.Label(hdr, text=f" v{APP_VERSION}",
-                 font=F_MONO_S,
-                 bg=PALETTE["sidebar"], fg=PALETTE["sidebar_text"]
-                 ).pack(side=tk.LEFT, pady=14)
+                 font=(_FFM, 9),
+                 bg=PALETTE["sidebar"], fg=PALETTE["muted"]
+                 ).pack(side=tk.LEFT, pady=2)
 
         # 우측 의존성 뱃지
         dep = []
         dep.append("PyAG ✅" if HAS_PYAUTOGUI else "PyAG ❌")
         dep.append("OCR ✅"  if HAS_OCR       else "OCR ❌")
         dep.append("NoClip ✅")  # v1.61: 클립보드 미사용
-        tk.Label(hdr, text="  ".join(dep),
-                 font=F_MONO_S,
-                 bg=PALETTE["sidebar"], fg=PALETTE["sidebar_text"]
-                 ).pack(side=tk.RIGHT, padx=18)
+        tk.Label(hdr, text="   ".join(dep),
+                 font=(_FFM, 8),
+                 bg=PALETTE["sidebar"], fg=PALETTE["muted"]
+                 ).pack(side=tk.RIGHT, padx=16)
 
     # ── 사이드바 ────────────────────────────────────────────
     def _build_sidebar(self, parent: tk.Frame):
-        sb = tk.Frame(parent, bg=PALETTE["sidebar"], width=200)
+        sb = tk.Frame(parent, bg=PALETTE["sidebar"], width=196)
         sb.pack(fill=tk.Y, side=tk.LEFT)
         sb.pack_propagate(False)
         # 우측 세로 구분선
         tk.Frame(parent, bg=PALETTE["border"], width=1
                  ).pack(fill=tk.Y, side=tk.LEFT)
 
-        # 앱명 소형 레이블
+        # MENU 레이블
         tk.Label(sb, text="MENU",
-                 font=F_MONO_S,
-                 bg=PALETTE["sidebar"], fg=PALETTE["sidebar_text"]
-                 ).pack(anchor=tk.W, padx=18, pady=(14, 4))
+                 font=(_FFM, 8),
+                 bg=PALETTE["sidebar"], fg=PALETTE["muted"]
+                 ).pack(anchor=tk.W, padx=18, pady=(16, 4))
         tk.Frame(sb, bg=PALETTE["border"], height=1
-                 ).pack(fill=tk.X, padx=14, pady=(0, 6))
+                 ).pack(fill=tk.X, padx=12, pady=(0, 6))
 
         for tab_id, label in SIDEBAR_TABS:
             self._make_tab_btn(sb, tab_id, label)
 
         # 하단 버전 표시
         tk.Frame(sb, bg=PALETTE["border"], height=1
-                 ).pack(fill=tk.X, padx=14, side=tk.BOTTOM, pady=(0, 4))
+                 ).pack(fill=tk.X, padx=12, side=tk.BOTTOM, pady=(0, 2))
         tk.Label(sb, text=f"v{APP_VERSION}",
-                 font=F_MONO_S,
-                 bg=PALETTE["sidebar"], fg=PALETTE["sidebar_text"]
-                 ).pack(side=tk.BOTTOM, pady=6)
+                 font=(_FFM, 8),
+                 bg=PALETTE["sidebar"], fg=PALETTE["muted"]
+                 ).pack(side=tk.BOTTOM, pady=8)
 
     def _make_tab_btn(self, parent, tab_id: str, label: str):
         btn = tk.Label(
             parent, text=f"  {label}",
-            font=F_BODY,
+            font=(_FF, 10),
             bg=PALETTE["sidebar"], fg=PALETTE["sidebar_text"],
-            anchor=tk.W, cursor="hand2", padx=12, pady=11,
+            anchor=tk.W, cursor="hand2", padx=10, pady=10,
         )
-        btn.pack(fill=tk.X, padx=8, pady=1)
+        btn.pack(fill=tk.X, padx=6, pady=1)
         btn.bind("<Button-1>", lambda e, t=tab_id: self._switch_tab(t))
-        btn.bind("<Enter>",    lambda e, b=btn: b.config(bg=PALETTE["hover"]))
+        btn.bind("<Enter>",    lambda e, b=btn, t=tab_id: b.config(
+            bg=PALETTE["hover"] if self._active_tab != t else PALETTE["selected"]))
         btn.bind("<Leave>",    lambda e, b=btn, t=tab_id: b.config(
-            bg=PALETTE["selected"] if self._active_tab==t else PALETTE["sidebar"]))
+            bg=PALETTE["selected"] if self._active_tab == t else PALETTE["sidebar"]))
         self._tab_btns[tab_id] = btn
 
     # ── 콘텐츠 영역 ─────────────────────────────────────────
@@ -2278,30 +2288,36 @@ class App(tk.Tk):
     def _switch_tab(self, tab_id: str):
         if self._active_tab in self._tab_btns:
             ob = self._tab_btns[self._active_tab]
-            ob.config(bg=PALETTE["sidebar"], fg=PALETTE["sidebar_text"],
-                      font=F_BODY)
+            ob.config(
+                bg=PALETTE["sidebar"],
+                fg=PALETTE["sidebar_text"],
+                font=(_FF, 10),
+            )
         self._active_tab = tab_id
         if tab_id in self._tab_btns:
             nb = self._tab_btns[tab_id]
-            nb.config(bg=PALETTE["selected"], fg=PALETTE["text"],
-                      font=F_BTN)
+            nb.config(
+                bg=PALETTE["selected"],
+                fg=PALETTE["text"],
+                font=(_FF, 10, "bold"),
+            )
         for tid, frame in self._tab_frames.items():
             frame.lift() if tid == tab_id else frame.lower()
 
     # ── 상태바 ──────────────────────────────────────────────
     def _build_statusbar(self):
-        bar = tk.Frame(self, bg=PALETTE["sidebar"], height=28)
+        bar = tk.Frame(self, bg=PALETTE["sidebar"], height=26)
         bar.pack(fill=tk.X, side=tk.BOTTOM)
         bar.pack_propagate(False)
         tk.Frame(bar, bg=PALETTE["border"], height=1
                  ).place(relx=0, rely=0, relwidth=1.0)
         tk.Label(bar, textvariable=self._status_var,
-                 font=F_SMALL,
+                 font=(_FF, 9),
                  bg=PALETTE["sidebar"], fg=PALETTE["sidebar_text"],
                  anchor=tk.W, padx=12).pack(side=tk.LEFT, fill=tk.Y)
         tk.Label(bar, text=datetime.now().strftime("%Y-%m-%d"),
-                 font=F_MONO_S,
-                 bg=PALETTE["sidebar"], fg=PALETTE["sidebar_text"],
+                 font=(_FFM, 8),
+                 bg=PALETTE["sidebar"], fg=PALETTE["muted"],
                  padx=12).pack(side=tk.RIGHT, fill=tk.Y)
 
     def _set_status(self, msg: str):
@@ -9119,18 +9135,18 @@ except Exception as _e_lw:
     _LOGIN_OK  = False
     _LOGIN_ERR = str(_e_lw)
 
-# ─── 색상 (Splash 전용 — PALETTE 와 동일 톤) ──────────────────────
+# ─── 색상 (Splash/Update 다이얼로그 — PALETTE 다크테마 통일) ──────
 _SC = {
-    "bg":      "#1a1a2e",
-    "card":    "#0f3460",
-    "accent":  "#e94560",
-    "green":   "#4ecca3",
-    "yellow":  "#f5a623",
-    "text":    "#eaeaea",
-    "sub":     "#a8a8b3",
-    "border":  "#2a2a4a",
-    "btn_ok":  "#e94560",
-    "btn_skip":"#0f3460",
+    "bg":       "#1E1E2E",
+    "card":     "#2A2A3E",
+    "accent":   "#FF6B6B",
+    "green":    "#51CF66",
+    "yellow":   "#FFD43B",
+    "text":     "#E8E8F0",
+    "sub":      "#A0A0B8",
+    "border":   "#383850",
+    "btn_ok":   "#5C7CFA",
+    "btn_skip": "#2A2A3E",
 }
 
 
@@ -9138,6 +9154,9 @@ _SC = {
 # SplashWindow
 # ════════════════════════════════════════════════════════════════
 class SplashWindow(tk.Tk):
+    """앱 시작 시 표시되는 스플래시 창 (업데이트 확인 중 표시)."""
+
+    _BAR_W = 420  # 프로그레스바 너비
 
     def __init__(self):
         super().__init__()
@@ -9145,59 +9164,85 @@ class SplashWindow(tk.Tk):
         self.attributes("-topmost", True)
         self.configure(bg=_SC["bg"])
 
-        W, H = 500, 280
+        W, H = 480, 300
         sw = self.winfo_screenwidth()
         sh = self.winfo_screenheight()
-        self.geometry(f"{W}x{H}+{(sw-W)//2}+{(sh-H)//2}")
+        self.geometry(f"{W}x{H}+{(sw - W) // 2}+{(sh - H) // 2}")
 
-        border = tk.Frame(self, bg=_SC["accent"], padx=2, pady=2)
+        # 외곽 테두리 프레임 (primary 색상 2px)
+        border = tk.Frame(self, bg=_SC["btn_ok"], padx=2, pady=2)
         border.pack(fill="both", expand=True)
-        inner  = tk.Frame(border, bg=_SC["bg"])
+
+        inner = tk.Frame(border, bg=_SC["bg"])
         inner.pack(fill="both", expand=True)
 
-        tk.Label(inner, text="✉",
-            font=("Segoe UI Emoji", 34),
-            bg=_SC["bg"], fg=_SC["accent"],
-        ).pack(pady=(22, 0))
+        # ── 아이콘 ────────────────────────────────────────────────
+        tk.Label(
+            inner,
+            text="✉",
+            font=("Segoe UI Emoji", 28),
+            bg=_SC["bg"],
+            fg=_SC["btn_ok"],
+        ).pack(pady=(26, 0))
 
-        tk.Label(inner, text=APP_TITLE,
-            font=("Malgun Gothic", 15, "bold"),
-            bg=_SC["bg"], fg=_SC["text"],
-        ).pack(pady=(4, 2))
+        # ── 앱 제목 ───────────────────────────────────────────────
+        tk.Label(
+            inner,
+            text=APP_TITLE,
+            font=("Malgun Gothic", 14, "bold"),
+            bg=_SC["bg"],
+            fg=_SC["text"],
+        ).pack(pady=(6, 2))
 
-        tk.Label(inner,
-            text=f"v{APP_VERSION}  ·  ahaaa / messenger-allInOne2",
-            font=("Malgun Gothic", 8),
-            bg=_SC["bg"], fg=_SC["sub"],
+        # ── 버전 / 저장소 정보 ────────────────────────────────────
+        tk.Label(
+            inner,
+            text=f"v{APP_VERSION}  ·  lcm67088-tech / messenger-allInOne2",
+            font=("Malgun Gothic", 9),
+            bg=_SC["bg"],
+            fg=_SC["sub"],
         ).pack()
 
-        tk.Frame(inner, bg=_SC["border"], height=1).pack(fill="x", padx=30, pady=(14, 10))
+        # ── 구분선 ────────────────────────────────────────────────
+        tk.Frame(inner, bg=_SC["border"], height=1).pack(
+            fill="x", padx=28, pady=(16, 12)
+        )
 
+        # ── 상태 메시지 ───────────────────────────────────────────
         self._status_var = tk.StringVar(value="업데이트 확인 중...")
-        self._status_lbl = tk.Label(inner,
+        self._status_lbl = tk.Label(
+            inner,
             textvariable=self._status_var,
             font=("Malgun Gothic", 10),
-            bg=_SC["bg"], fg=_SC["yellow"],
+            bg=_SC["bg"],
+            fg=_SC["yellow"],
         )
         self._status_lbl.pack()
 
-        self._canvas = tk.Canvas(inner, width=400, height=6,
-            bg=_SC["card"], highlightthickness=0)
-        self._canvas.pack(pady=(10, 6))
-        self._bar     = self._canvas.create_rectangle(0, 0, 0, 6, fill=_SC["green"], outline="")
-        self._bar_w   = 400
-        self._anim_x  = 0
+        # ── 프로그레스바 (Canvas) ─────────────────────────────────
+        self._canvas = tk.Canvas(
+            inner,
+            width=self._BAR_W,
+            height=6,
+            bg=_SC["card"],
+            highlightthickness=0,
+        )
+        self._canvas.pack(pady=(12, 8))
+        self._bar = self._canvas.create_rectangle(
+            0, 0, 0, 6, fill=_SC["green"], outline=""
+        )
+        self._anim_x    = 0
         self._animating = True
         self._do_animate()
 
     def _do_animate(self):
         if not self._animating:
             return
-        w  = 90
-        x1 = self._anim_x % (self._bar_w + w) - w
-        self._canvas.coords(self._bar, x1, 0, x1 + w, 6)
-        self._anim_x += 7
-        self.after(15, self._do_animate)
+        chunk = 80
+        x1 = self._anim_x % (self._BAR_W + chunk) - chunk
+        self._canvas.coords(self._bar, x1, 0, x1 + chunk, 6)
+        self._anim_x += 8
+        self.after(14, self._do_animate)
 
     def set_status(self, msg: str, color: str | None = None):
         self._status_var.set(msg)
@@ -9207,13 +9252,13 @@ class SplashWindow(tk.Tk):
 
     def set_progress(self, pct: float):
         self._animating = False
-        w = int(self._bar_w * max(0.0, min(pct, 1.0)))
+        w = int(self._BAR_W * max(0.0, min(pct, 1.0)))
         self._canvas.coords(self._bar, 0, 0, w, 6)
         self.update_idletasks()
 
     def done(self):
         self._animating = False
-        self._canvas.coords(self._bar, 0, 0, self._bar_w, 6)
+        self._canvas.coords(self._bar, 0, 0, self._BAR_W, 6)
         self.update_idletasks()
 
 
@@ -9221,6 +9266,7 @@ class SplashWindow(tk.Tk):
 # 업데이트 다이얼로그
 # ════════════════════════════════════════════════════════════════
 def _show_update_dialog(parent: tk.Misc, info) -> bool:
+    """새 버전 발견 시 표시하는 업데이트 안내 다이얼로그."""
     dlg = tk.Toplevel(parent)
     dlg.title("새 버전 발견")
     dlg.configure(bg=_SC["bg"])
@@ -9228,59 +9274,92 @@ def _show_update_dialog(parent: tk.Misc, info) -> bool:
     dlg.attributes("-topmost", True)
     dlg.grab_set()
 
-    W, H = 460, 310
+    W, H = 460, 340
     sw = dlg.winfo_screenwidth()
     sh = dlg.winfo_screenheight()
-    dlg.geometry(f"{W}x{H}+{(sw-W)//2}+{(sh-H)//2}")
+    dlg.geometry(f"{W}x{H}+{(sw - W) // 2}+{(sh - H) // 2}")
 
-    tk.Label(dlg, text="🆕  새 버전이 있습니다!",
-        font=("Malgun Gothic", 13, "bold"),
-        bg=_SC["bg"], fg=_SC["green"],
-    ).pack(pady=(20, 4))
+    _FF = "Malgun Gothic"
+    force = getattr(info, "force_update", False)
 
-    tk.Label(dlg,
-        text=f"현재: v{info.local_ver}   →   최신: v{info.remote_ver}",
-        font=("Malgun Gothic", 10),
-        bg=_SC["bg"], fg=_SC["text"],
-    ).pack(pady=2)
+    # ── 상단 포인트 바 ────────────────────────────────────────────
+    accent_color = _SC["accent"] if force else _SC["btn_ok"]
+    tk.Frame(dlg, bg=accent_color, height=3).pack(fill="x")
 
+    # ── 제목 ─────────────────────────────────────────────────────
+    title_text = "⚠  필수 업데이트" if force else "🆕  새 버전이 있습니다!"
+    title_color = _SC["yellow"] if force else _SC["green"]
+    tk.Label(
+        dlg,
+        text=title_text,
+        font=(_FF, 13, "bold"),
+        bg=_SC["bg"],
+        fg=title_color,
+    ).pack(pady=(18, 4))
+
+    # ── 버전 비교 ─────────────────────────────────────────────────
+    tk.Label(
+        dlg,
+        text=f"현재  v{info.local_ver}   →   최신  v{info.remote_ver}",
+        font=(_FF, 10),
+        bg=_SC["bg"],
+        fg=_SC["text"],
+    ).pack(pady=(0, 2))
+
+    # ── 릴리즈 날짜 / 필수 뱃지 ──────────────────────────────────
     meta_parts = []
     if getattr(info, "release_date", ""):
         meta_parts.append(f"릴리즈: {info.release_date}")
-    if getattr(info, "force_update", False):
+    if force:
         meta_parts.append("⚠ 필수 업데이트")
     if meta_parts:
-        tk.Label(dlg, text="  |  ".join(meta_parts),
-            font=("Malgun Gothic", 9),
+        tk.Label(
+            dlg,
+            text="   |   ".join(meta_parts),
+            font=(_FF, 9),
             bg=_SC["bg"],
-            fg=_SC["yellow"] if getattr(info, "force_update", False) else _SC["sub"],
+            fg=_SC["yellow"] if force else _SC["sub"],
         ).pack()
 
-    tk.Frame(dlg, bg=_SC["border"], height=1).pack(fill="x", padx=30, pady=8)
+    # ── 구분선 ────────────────────────────────────────────────────
+    tk.Frame(dlg, bg=_SC["border"], height=1).pack(fill="x", padx=28, pady=(10, 8))
 
-    note_frm = tk.Frame(dlg, bg=_SC["card"], padx=12, pady=8)
-    note_frm.pack(fill="x", padx=30)
-    tk.Label(note_frm,
+    # ── 업데이트 노트 카드 ────────────────────────────────────────
+    note_card = tk.Frame(dlg, bg=_SC["card"], padx=14, pady=10)
+    note_card.pack(fill="x", padx=28)
+    tk.Label(
+        note_card,
         text=getattr(info, "update_note", "") or "(업데이트 내용 없음)",
-        font=("Malgun Gothic", 9),
-        bg=_SC["card"], fg=_SC["text"],
-        wraplength=380, justify="left",
+        font=(_FF, 9),
+        bg=_SC["card"],
+        fg=_SC["text"],
+        wraplength=390,
+        justify="left",
     ).pack(anchor="w")
 
+    # ── SHA-256 (있을 때만) ───────────────────────────────────────
     if getattr(info, "enc_sha256", ""):
-        tk.Label(dlg,
-            text=f"SHA-256: {info.enc_sha256[:16]}...",
-            font=("Courier New", 8),
-            bg=_SC["bg"], fg=_SC["sub"],
-        ).pack(pady=(4, 0))
+        tk.Label(
+            dlg,
+            text=f"SHA-256: {info.enc_sha256[:20]}...",
+            font=("Consolas", 8),
+            bg=_SC["bg"],
+            fg=_SC["sub"],
+        ).pack(pady=(6, 0))
 
-    force = getattr(info, "force_update", False)
-    notice = "※ 필수 업데이트입니다. 지금 업데이트해야 합니다." if force \
-             else "※ 업데이트는 다음 실행 시 자동 적용됩니다."
-    tk.Label(dlg, text=notice,
-        font=("Malgun Gothic", 8),
-        bg=_SC["bg"], fg=_SC["accent"] if force else _SC["sub"],
-    ).pack(pady=(6, 4))
+    # ── 안내 텍스트 ───────────────────────────────────────────────
+    notice = (
+        "※ 필수 업데이트입니다. 지금 업데이트해야 합니다."
+        if force
+        else "※ 지금 업데이트하거나 다음 실행 시 다시 알림합니다."
+    )
+    tk.Label(
+        dlg,
+        text=notice,
+        font=(_FF, 9),
+        bg=_SC["bg"],
+        fg=_SC["accent"] if force else _SC["sub"],
+    ).pack(pady=(8, 4))
 
     result = {"val": False}
 
@@ -9292,29 +9371,46 @@ def _show_update_dialog(parent: tk.Misc, info) -> bool:
         result["val"] = False
         dlg.destroy()
 
+    # ── 버튼 영역 ─────────────────────────────────────────────────
     btn_frame = tk.Frame(dlg, bg=_SC["bg"])
-    btn_frame.pack(pady=4)
+    btn_frame.pack(pady=(4, 14))
 
-    tk.Button(btn_frame, text="✅  지금 업데이트",
+    ok_btn = tk.Button(
+        btn_frame,
+        text="✅  지금 업데이트",
         command=on_update,
-        bg=_SC["btn_ok"], fg="#fff",
-        font=("Malgun Gothic", 10, "bold"),
-        relief="flat", cursor="hand2",
-        width=16, pady=8,
-        activebackground="#c73652",
-    ).pack(side="left", padx=(0, 10))
+        bg=_SC["btn_ok"],
+        fg="#FFFFFF",
+        font=(_FF, 10, "bold"),
+        relief="flat",
+        cursor="hand2",
+        width=16,
+        pady=9,
+        activebackground=_SC["primary2"] if not force else "#CC4444",
+        activeforeground="#FFFFFF",
+    )
+    ok_btn.pack(side="left", padx=(0, 10))
+    ok_btn.bind("<Enter>", lambda e: ok_btn.config(bg="#4568F5"))
+    ok_btn.bind("<Leave>", lambda e: ok_btn.config(bg=_SC["btn_ok"]))
 
-    skip_btn = tk.Button(btn_frame, text="⏭  나중에",
+    skip_btn = tk.Button(
+        btn_frame,
+        text="⏭  나중에",
         command=on_skip,
-        bg=_SC["btn_skip"], fg=_SC["sub"],
-        font=("Malgun Gothic", 10),
-        relief="flat", cursor="hand2",
-        width=10, pady=8,
+        bg=_SC["btn_skip"],
+        fg=_SC["sub"],
+        font=(_FF, 10),
+        relief="flat",
+        cursor="hand2",
+        width=10,
+        pady=9,
+        activebackground=_SC["border"],
+        activeforeground=_SC["text"],
     )
     skip_btn.pack(side="left")
 
     if force:
-        skip_btn.config(state="disabled", fg="#555555")
+        skip_btn.config(state="disabled", fg=_SC["muted"])
 
     dlg.wait_window()
     return result["val"]
