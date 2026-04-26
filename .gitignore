@@ -15,5 +15,4 @@ node_modules/
 # PAT 저장 파일 (절대 커밋 금지)
 build/.secret
 .secret
-# inject_token.py 가 PAT/AES 키를 주입하는 파일 — 커밋 금지
-core/auto_updater.py
+
