@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-inject_token.py  —  메신저 올인원 빌드 도구  v1.5.1
+inject_token.py  —  메신저 올인원 빌드 도구  v1.6.0
 ════════════════════════════════════════════════════════════════
 빌드 전 실행하여:
   1. PAT 토큰을 XOR+Base64 로 난독화 → core/auto_updater.py 에 삽입
@@ -9,17 +9,24 @@ inject_token.py  —  메신저 올인원 빌드 도구  v1.5.1
   3. messenger_allInOne.py 를 AES-256-CBC 로 암호화 → .enc 파일 생성
   4. SHA-256 해시 계산 → build/version.json 에 자동 기록
 
+PAT 저장 방법 (우선순위 순):
+  1. build/.secret 파일에 저장 (권장 — 한 번만 입력하면 영구 저장)
+  2. --pat 인수로 직접 전달
+
+build/.secret 파일 형식:
+  PAT=ghp_xxxxxxxxxxxxxxxxxxxx
+
 사용법:
-  python inject_token.py --pat "ghp_xxxxxxxxxxxx"
+  python inject_token.py              # .secret 파일에서 자동 로드
+  python inject_token.py --pat "ghp_xxxxxxxxxxxx"  # 직접 전달
 
 옵션:
-  --pat   GitHub PAT 토큰 (repo 권한 필요)
+  --pat   GitHub PAT 토큰 (repo 권한 필요, .secret 없을 때만 필요)
   --src   암호화할 소스 파일 (기본: ../messenger_allInOne_v1.7.0.py)
   --out   출력 .enc 파일 경로 (기본: ../messenger_allInOne.enc)
   --ver   version.json 경로 (기본: ./version.json)
 
-⚠ 이 스크립트의 출력물(.enc, 수정된 auto_updater.py)만 배포하세요.
-  평문 PAT 와 AES 키는 절대 커밋하지 마세요.
+⚠ .secret 파일은 절대 GitHub 에 올리지 마세요! (.gitignore 에 포함됨)
 ════════════════════════════════════════════════════════════════
 """
 
@@ -49,6 +56,38 @@ BUILD_DIR    = Path(__file__).parent
 ROOT_DIR     = BUILD_DIR.parent
 UPDATER_PATH = ROOT_DIR / "core" / "auto_updater.py"
 VERSION_JSON = BUILD_DIR / "version.json"
+SECRET_FILE  = BUILD_DIR / ".secret"    # PAT 저장 파일 (gitignore 포함)
+
+
+# ────────────────────────────────────────────────────────────
+# PAT 로드 함수
+# ────────────────────────────────────────────────────────────
+def load_pat_from_secret() -> str | None:
+    """
+    build/.secret 파일에서 PAT 를 읽어온다.
+    파일 형식:
+        PAT=ghp_xxxxxxxxxxxxxxxxxxxx
+    """
+    if not SECRET_FILE.exists():
+        return None
+    for line in SECRET_FILE.read_text(encoding="utf-8").splitlines():
+        line = line.strip()
+        if not line or line.startswith("#"):
+            continue
+        if "=" in line:
+            key, _, val = line.partition("=")
+            if key.strip().upper() == "PAT":
+                pat = val.strip()
+                if pat:
+                    return pat
+    return None
+
+
+def save_pat_to_secret(pat: str):
+    """PAT 를 build/.secret 파일에 저장한다."""
+    SECRET_FILE.write_text(f"PAT={pat}\n", encoding="utf-8")
+    print(f"  💾 PAT 저장됨: {SECRET_FILE}")
+    print(f"     다음부터는 --pat 없이 실행 가능합니다.")
 
 
 # ────────────────────────────────────────────────────────────
@@ -137,7 +176,12 @@ def main():
     parser = argparse.ArgumentParser(
         description="메신저 올인원 빌드 도구 — PAT 난독화 + AES 암호화"
     )
-    parser.add_argument("--pat",  required=True, help="GitHub PAT 토큰")
+    parser.add_argument(
+        "--pat",
+        required=False,
+        default=None,
+        help="GitHub PAT 토큰 (build/.secret 파일이 있으면 생략 가능)",
+    )
     parser.add_argument(
         "--src",
         default=str(ROOT_DIR / "messenger_allInOne_v1.7.0.py"),
@@ -163,9 +207,27 @@ def main():
     print(f"  소스 파일 : {src_path}")
     print(f"  출력 .enc : {out_path}")
 
+    # ── PAT 결정 (우선순위: --pat 인수 > .secret 파일) ─────
+    pat_value = args.pat
+
+    if pat_value:
+        # --pat 로 직접 전달된 경우 → .secret 에 저장 (다음부터 생략 가능)
+        print(f"\n  ℹ PAT 를 --pat 인수로 전달받았습니다.")
+        save_pat_to_secret(pat_value)
+    else:
+        # .secret 파일에서 로드 시도
+        pat_value = load_pat_from_secret()
+        if pat_value:
+            print(f"\n  ✅ PAT 로드됨: {SECRET_FILE.name}  ({pat_value[:8]}...)")
+        else:
+            print("\n  ❌ PAT 를 찾을 수 없습니다.")
+            print("     방법 1: python inject_token.py --pat \"ghp_xxxx\"")
+            print(f"    방법 2: {SECRET_FILE} 파일에 PAT=ghp_xxxx 형식으로 저장")
+            sys.exit(1)
+
     # ── 1) PAT 난독화 ───────────────────────────────────────
     print("\n[1/4] PAT XOR+Base64 난독화...")
-    pat_encoded = xor_encode(args.pat.encode(), XOR_KEY)
+    pat_encoded = xor_encode(pat_value.encode(), XOR_KEY)
     print(f"  인코딩 결과: {pat_encoded[:20]}...")
 
     # ── 2) AES-256 랜덤 키 생성 ─────────────────────────────

@@ -12,3 +12,6 @@ node_modules/
 *.bak
 # 루트 중복 파일
 /version.json
+# PAT 저장 파일 (절대 커밋 금지)
+build/.secret
+.secret
