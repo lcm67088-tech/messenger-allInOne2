@@ -1,0 +1,309 @@
+﻿2026-03-13 12:13:30,DEBUG,투잡커넥트,ADAD,[드라이버] Chrome 시작 (시도 1)
+2026-03-13 12:13:30,DEBUG,투잡커넥트,ADAD,[드라이버] 감지된 Chrome 버전: 145
+2026-03-13 12:13:33,DEBUG,투잡커넥트,ADAD,[드라이버] Chrome 실행 완료
+2026-03-13 12:13:33,DEBUG,투잡커넥트,ADAD,[로그인 STEP1] 메인 URL 진입: https://www.tojobcn.com
+2026-03-13 12:13:40,DEBUG,투잡커넥트,ADAD,[로그인 STEP2] 팝업 닫기 1차
+2026-03-13 12:13:43,DEBUG,투잡커넥트,ADAD,[로그인 STEP2] 팝업 닫기 2차 (지연 팝업 대응)
+2026-03-13 12:13:45,DEBUG,투잡커넥트,ADAD,[로그인 STEP2.5] 로그인 전용 URL 이동: https://www.tojobcn.com/bbs/login.php
+2026-03-13 12:13:49,DEBUG,투잡커넥트,ADAD,[로그인 STEP3] login_btn_sel 없음 – 페이지에 바로 폼 있음
+2026-03-13 12:13:49,DEBUG,투잡커넥트,ADAD,[로그인 STEP4] ID 입력 (셀렉터: input[name='mb_id'])
+2026-03-13 12:13:50,DEBUG,투잡커넥트,ADAD,[로그인 STEP4] ID 입력 완료: ADAD
+2026-03-13 12:13:50,DEBUG,투잡커넥트,ADAD,[로그인 STEP4] PW 입력 (셀렉터: input[name='mb_password'])
+2026-03-13 12:13:51,DEBUG,투잡커넥트,ADAD,"[로그인 STEP4] 로그인 버튼 클릭 (셀렉터: button[type='submit'], input[type='submit'][value*='로그인'])"
+2026-03-13 12:13:54,DEBUG,투잡커넥트,ADAD,[로그인 STEP5] 로그인 후 팝업 처리
+2026-03-13 12:13:54,DEBUG,투잡커넥트,ADAD,"[팝업] JS Alert 닫음: ""가입된 회원아이디가 아니거나 비밀번호가 틀립니다.
+비밀번호는 대소문자를 구분합니다."""
+2026-03-13 12:13:56,DEBUG,투잡커넥트,ADAD,[로그인 STEP6] 로그인 성공 확인 (현재 URL: https://www.tojobcn.com/bbs/login.php)
+2026-03-13 12:13:56,WARN,투잡커넥트,ADAD,"재시도 1/2 – [Exception] 로그인 실패 – ID/PW를 확인하세요 (비밀번호 필드가 여전히 보임)
+  └ 현재 URL : https://www.tojobcn.com/bbs/login.php
+  └ 페이지 제목: 로그인 | 투잡커넥트"
+2026-03-13 12:13:56,DEBUG,투잡커넥트,ADAD,"[스택트레이스 (시도 1)]
+Traceback (most recent call last):
+  File ""C:\Users\ahaaa\OneDrive\바탕 화면\각종 프로그램\각종 프로그램\community_poster_v5.20.py"", line 778, in _run_task
+    self._post_smarteditor(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        driver, site_cfg, account, content,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        cb, dbg, dismiss_alert, close_all_popups,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        find_visible, text_to_html, acc_id, acc_pw
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File ""C:\Users\ahaaa\OneDrive\바탕 화면\각종 프로그램\각종 프로그램\community_poster_v5.20.py"", line 1727, in _post_smarteditor
+    self._login_common(driver, site_cfg, acc_id, acc_pw,
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                       cb, dbg, dismiss_alert, close_all_popups, find_visible)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""C:\Users\ahaaa\OneDrive\바탕 화면\각종 프로그램\각종 프로그램\community_poster_v5.20.py"", line 920, in _login_common
+    raise Exception(""로그인 실패 – ID/PW를 확인하세요 (비밀번호 필드가 여전히 보임)"")
+Exception: 로그인 실패 – ID/PW를 확인하세요 (비밀번호 필드가 여전히 보임)
+"
+2026-03-13 12:14:00,DEBUG,투잡커넥트,ADAD,[드라이버] Chrome 시작 (시도 2)
+2026-03-13 12:14:00,DEBUG,투잡커넥트,ADAD,[드라이버] 감지된 Chrome 버전: 145
+2026-03-13 12:14:03,DEBUG,투잡커넥트,ADAD,[드라이버] Chrome 실행 완료
+2026-03-13 12:14:03,DEBUG,투잡커넥트,ADAD,[로그인 STEP1] 메인 URL 진입: https://www.tojobcn.com
+2026-03-13 12:14:14,DEBUG,투잡커넥트,ADAD,[로그인 STEP2] 팝업 닫기 1차
+2026-03-13 12:14:17,DEBUG,투잡커넥트,ADAD,[로그인 STEP2] 팝업 닫기 2차 (지연 팝업 대응)
+2026-03-13 12:14:18,DEBUG,투잡커넥트,ADAD,[로그인 STEP2.5] 로그인 전용 URL 이동: https://www.tojobcn.com/bbs/login.php
+2026-03-13 12:14:23,DEBUG,투잡커넥트,ADAD,[로그인 STEP3] login_btn_sel 없음 – 페이지에 바로 폼 있음
+2026-03-13 12:14:23,DEBUG,투잡커넥트,ADAD,[로그인 STEP4] ID 입력 (셀렉터: input[name='mb_id'])
+2026-03-13 12:14:23,DEBUG,투잡커넥트,ADAD,[로그인 STEP4] ID 입력 완료: ADAD
+2026-03-13 12:14:23,DEBUG,투잡커넥트,ADAD,[로그인 STEP4] PW 입력 (셀렉터: input[name='mb_password'])
+2026-03-13 12:14:23,DEBUG,투잡커넥트,ADAD,"[로그인 STEP4] 로그인 버튼 클릭 (셀렉터: button[type='submit'], input[type='submit'][value*='로그인'])"
+2026-03-13 12:14:26,DEBUG,투잡커넥트,ADAD,[로그인 STEP5] 로그인 후 팝업 처리
+2026-03-13 12:14:27,DEBUG,투잡커넥트,ADAD,[로그인 STEP6] 로그인 성공 확인 (현재 URL: https://www.tojobcn.com/bbs/login.php)
+2026-03-13 12:14:27,WARN,투잡커넥트,ADAD,"재시도 2/2 – [Exception] 로그인 실패 – ID/PW를 확인하세요 (비밀번호 필드가 여전히 보임)
+  └ 현재 URL : https://www.tojobcn.com/bbs/login.php
+  └ 페이지 제목: 로그인 | 투잡커넥트"
+2026-03-13 12:14:27,DEBUG,투잡커넥트,ADAD,"[스택트레이스 (시도 2)]
+Traceback (most recent call last):
+  File ""C:\Users\ahaaa\OneDrive\바탕 화면\각종 프로그램\각종 프로그램\community_poster_v5.20.py"", line 778, in _run_task
+    self._post_smarteditor(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        driver, site_cfg, account, content,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        cb, dbg, dismiss_alert, close_all_popups,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        find_visible, text_to_html, acc_id, acc_pw
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File ""C:\Users\ahaaa\OneDrive\바탕 화면\각종 프로그램\각종 프로그램\community_poster_v5.20.py"", line 1727, in _post_smarteditor
+    self._login_common(driver, site_cfg, acc_id, acc_pw,
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                       cb, dbg, dismiss_alert, close_all_popups, find_visible)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""C:\Users\ahaaa\OneDrive\바탕 화면\각종 프로그램\각종 프로그램\community_poster_v5.20.py"", line 920, in _login_common
+    raise Exception(""로그인 실패 – ID/PW를 확인하세요 (비밀번호 필드가 여전히 보임)"")
+Exception: 로그인 실패 – ID/PW를 확인하세요 (비밀번호 필드가 여전히 보임)
+"
+2026-03-13 12:14:31,DEBUG,투잡커넥트,ADAD,[드라이버] Chrome 시작 (시도 3)
+2026-03-13 12:14:31,DEBUG,투잡커넥트,ADAD,[드라이버] 감지된 Chrome 버전: 145
+2026-03-13 12:14:34,DEBUG,투잡커넥트,ADAD,[드라이버] Chrome 실행 완료
+2026-03-13 12:14:34,DEBUG,투잡커넥트,ADAD,[로그인 STEP1] 메인 URL 진입: https://www.tojobcn.com
+2026-03-13 12:14:41,DEBUG,투잡커넥트,ADAD,[로그인 STEP2] 팝업 닫기 1차
+2026-03-13 12:14:44,DEBUG,투잡커넥트,ADAD,[로그인 STEP2] 팝업 닫기 2차 (지연 팝업 대응)
+2026-03-13 12:14:45,DEBUG,투잡커넥트,ADAD,[로그인 STEP2.5] 로그인 전용 URL 이동: https://www.tojobcn.com/bbs/login.php
+2026-03-13 12:14:51,DEBUG,투잡커넥트,ADAD,[로그인 STEP3] login_btn_sel 없음 – 페이지에 바로 폼 있음
+2026-03-13 12:14:51,DEBUG,투잡커넥트,ADAD,[로그인 STEP4] ID 입력 (셀렉터: input[name='mb_id'])
+2026-03-13 12:14:51,DEBUG,투잡커넥트,ADAD,[로그인 STEP4] ID 입력 완료: ADAD
+2026-03-13 12:14:51,DEBUG,투잡커넥트,ADAD,[로그인 STEP4] PW 입력 (셀렉터: input[name='mb_password'])
+2026-03-13 12:14:52,DEBUG,투잡커넥트,ADAD,"[로그인 STEP4] 로그인 버튼 클릭 (셀렉터: button[type='submit'], input[type='submit'][value*='로그인'])"
+2026-03-13 12:14:56,DEBUG,투잡커넥트,ADAD,[로그인 STEP5] 로그인 후 팝업 처리
+2026-03-13 12:14:57,DEBUG,투잡커넥트,ADAD,[로그인 STEP6] 로그인 성공 확인 (현재 URL: https://www.tojobcn.com/bbs/login.php)
+2026-03-13 12:14:57,ERROR,투잡커넥트,ADAD,"최종 실패 – [Exception] 로그인 실패 – ID/PW를 확인하세요 (비밀번호 필드가 여전히 보임)
+  └ 현재 URL : https://www.tojobcn.com/bbs/login.php
+  └ 페이지 제목: 로그인 | 투잡커넥트"
+2026-03-13 12:14:57,DEBUG,투잡커넥트,ADAD,"[스택트레이스 (최종)]
+Traceback (most recent call last):
+  File ""C:\Users\ahaaa\OneDrive\바탕 화면\각종 프로그램\각종 프로그램\community_poster_v5.20.py"", line 778, in _run_task
+    self._post_smarteditor(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        driver, site_cfg, account, content,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        cb, dbg, dismiss_alert, close_all_popups,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        find_visible, text_to_html, acc_id, acc_pw
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File ""C:\Users\ahaaa\OneDrive\바탕 화면\각종 프로그램\각종 프로그램\community_poster_v5.20.py"", line 1727, in _post_smarteditor
+    self._login_common(driver, site_cfg, acc_id, acc_pw,
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                       cb, dbg, dismiss_alert, close_all_popups, find_visible)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""C:\Users\ahaaa\OneDrive\바탕 화면\각종 프로그램\각종 프로그램\community_poster_v5.20.py"", line 920, in _login_common
+    raise Exception(""로그인 실패 – ID/PW를 확인하세요 (비밀번호 필드가 여전히 보임)"")
+Exception: 로그인 실패 – ID/PW를 확인하세요 (비밀번호 필드가 여전히 보임)
+"
+2026-03-13 14:58:49,DEBUG,투잡커넥트,ADAD,[드라이버] Chrome 시작 (시도 1)
+2026-03-13 14:58:49,DEBUG,투잡커넥트,ADAD,[드라이버] 감지된 Chrome 버전: 145
+2026-03-13 14:58:53,DEBUG,투잡커넥트,ADAD,[드라이버] Chrome 실행 완료
+2026-03-13 14:58:53,DEBUG,투잡커넥트,ADAD,[로그인 STEP1] 메인 URL 진입: https://www.tojobcn.com
+2026-03-13 14:59:00,DEBUG,투잡커넥트,ADAD,[로그인 STEP2] 팝업 닫기 1차
+2026-03-13 14:59:02,DEBUG,투잡커넥트,ADAD,[로그인 STEP2] 팝업 닫기 2차 (지연 팝업 대응)
+2026-03-13 14:59:03,DEBUG,투잡커넥트,ADAD,[로그인 STEP2.5] 로그인 전용 URL 이동: https://www.tojobcn.com/bbs/login.php
+2026-03-13 14:59:08,DEBUG,투잡커넥트,ADAD,[로그인 STEP3] login_btn_sel 없음 – 페이지에 바로 폼 있음
+2026-03-13 14:59:08,DEBUG,투잡커넥트,ADAD,[로그인 STEP4] ID 입력 (셀렉터: input[name='mb_id'])
+2026-03-13 14:59:08,DEBUG,투잡커넥트,ADAD,[로그인 STEP4] ID 입력 완료: ADAD
+2026-03-13 14:59:08,DEBUG,투잡커넥트,ADAD,[로그인 STEP4] PW 입력 (셀렉터: input[name='mb_password'])
+2026-03-13 14:59:09,DEBUG,투잡커넥트,ADAD,"[로그인 STEP4] 로그인 버튼 클릭 (셀렉터: button[type='submit'], input[type='submit'][value*='로그인'])"
+2026-03-13 14:59:12,DEBUG,투잡커넥트,ADAD,[로그인 STEP5] 로그인 후 팝업 처리
+2026-03-13 14:59:13,WARN,투잡커넥트,ADAD,"재시도 1/2 – [NoSuchWindowException] Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=145.0.7632.160)
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0xc97dd3
+	0xc97e14
+	0xaa1db0
+	0xa808d3
+	0xb150fb
+	0xb2b0d9
+	0xb0e7d6
+	0xae0049
+	0xae0e04
+	0xef6924
+	0xef1bf7
+	0xf0f5a0
+	0xcb0f58
+	0xcb891d
+	0xca0648
+	0xca0812
+	0xc8a21a
+	0x75a45d49
+	0x76ecd81b
+	0x76ecd7a1
+"
+2026-03-13 14:59:13,DEBUG,투잡커넥트,ADAD,"[스택트레이스 (시도 1)]
+Traceback (most recent call last):
+  File ""C:\Users\ahaaa\OneDrive\바탕 화면\각종 프로그램\각종 프로그램\community_poster_v5.20.py"", line 778, in _run_task
+    self._post_smarteditor(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        driver, site_cfg, account, content,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        cb, dbg, dismiss_alert, close_all_popups,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        find_visible, text_to_html, acc_id, acc_pw
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File ""C:\Users\ahaaa\OneDrive\바탕 화면\각종 프로그램\각종 프로그램\community_poster_v5.20.py"", line 1727, in _post_smarteditor
+    self._login_common(driver, site_cfg, acc_id, acc_pw,
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                       cb, dbg, dismiss_alert, close_all_popups, find_visible)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""C:\Users\ahaaa\OneDrive\바탕 화면\각종 프로그램\각종 프로그램\community_poster_v5.20.py"", line 916, in _login_common
+    dbg(f""[로그인 STEP6] 로그인 성공 확인 (현재 URL: {driver.current_url})"")
+                                                      ^^^^^^^^^^^^^^^^^^
+  File ""C:\Users\ahaaa\AppData\Local\Programs\Python\Python314\Lib\site-packages\undetected_chromedriver\__init__.py"", line 806, in __getattribute__
+    return super().__getattribute__(item)
+           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File ""C:\Users\ahaaa\AppData\Local\Programs\Python\Python314\Lib\site-packages\selenium\webdriver\remote\webdriver.py"", line 542, in current_url
+    return self.execute(Command.GET_CURRENT_URL)[""value""]
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""C:\Users\ahaaa\AppData\Local\Programs\Python\Python314\Lib\site-packages\selenium\webdriver\remote\webdriver.py"", line 432, in execute
+    self.error_handler.check_response(response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File ""C:\Users\ahaaa\AppData\Local\Programs\Python\Python314\Lib\site-packages\selenium\webdriver\remote\errorhandler.py"", line 232, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=145.0.7632.160)
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0xc97dd3
+	0xc97e14
+	0xaa1db0
+	0xa808d3
+	0xb150fb
+	0xb2b0d9
+	0xb0e7d6
+	0xae0049
+	0xae0e04
+	0xef6924
+	0xef1bf7
+	0xf0f5a0
+	0xcb0f58
+	0xcb891d
+	0xca0648
+	0xca0812
+	0xc8a21a
+	0x75a45d49
+	0x76ecd81b
+	0x76ecd7a1
+
+"
+2026-03-13 14:59:16,DEBUG,투잡커넥트,ADAD,[드라이버] Chrome 시작 (시도 2)
+2026-03-13 14:59:16,DEBUG,투잡커넥트,ADAD,[드라이버] 감지된 Chrome 버전: 145
+2026-03-13 14:59:18,DEBUG,투잡커넥트,ADAD,[드라이버] Chrome 실행 완료
+2026-03-13 14:59:18,DEBUG,투잡커넥트,ADAD,[로그인 STEP1] 메인 URL 진입: https://www.tojobcn.com
+2026-03-13 14:59:22,DEBUG,투잡커넥트,ADAD,[로그인 STEP2] 팝업 닫기 1차
+2026-03-13 14:59:23,DEBUG,투잡커넥트,ADAD,[로그인 STEP2] 팝업 닫기 2차 (지연 팝업 대응)
+2026-03-13 14:59:23,DEBUG,투잡커넥트,ADAD,[로그인 STEP2.5] 로그인 전용 URL 이동: https://www.tojobcn.com/bbs/login.php
+2026-03-13 14:59:23,WARN,투잡커넥트,ADAD,"재시도 2/2 – [NoSuchWindowException] Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=145.0.7632.160)
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0xb67dd3
+	0xb67e14
+	0x971db0
+	0x9508d3
+	0x9e50fb
+	0x9fb0d9
+	0x9de7d6
+	0x9b0049
+	0x9b0e04
+	0xdc6924
+	0xdc1bf7
+	0xddf5a0
+	0xb80f58
+	0xb8891d
+	0xb70648
+	0xb70812
+	0xb5a21a
+	0x75a45d49
+	0x76ecd81b
+	0x76ecd7a1
+"
+2026-03-13 14:59:23,DEBUG,투잡커넥트,ADAD,"[스택트레이스 (시도 2)]
+Traceback (most recent call last):
+  File ""C:\Users\ahaaa\OneDrive\바탕 화면\각종 프로그램\각종 프로그램\community_poster_v5.20.py"", line 778, in _run_task
+    self._post_smarteditor(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        driver, site_cfg, account, content,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        cb, dbg, dismiss_alert, close_all_popups,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        find_visible, text_to_html, acc_id, acc_pw
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File ""C:\Users\ahaaa\OneDrive\바탕 화면\각종 프로그램\각종 프로그램\community_poster_v5.20.py"", line 1727, in _post_smarteditor
+    self._login_common(driver, site_cfg, acc_id, acc_pw,
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                       cb, dbg, dismiss_alert, close_all_popups, find_visible)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""C:\Users\ahaaa\OneDrive\바탕 화면\각종 프로그램\각종 프로그램\community_poster_v5.20.py"", line 856, in _login_common
+    driver.get(login_url)
+    ~~~~~~~~~~^^^^^^^^^^^
+  File ""C:\Users\ahaaa\AppData\Local\Programs\Python\Python314\Lib\site-packages\undetected_chromedriver\__init__.py"", line 665, in get
+    return super().get(url)
+           ~~~~~~~~~~~^^^^^
+  File ""C:\Users\ahaaa\AppData\Local\Programs\Python\Python314\Lib\site-packages\selenium\webdriver\remote\webdriver.py"", line 452, in get
+    self.execute(Command.GET, {""url"": url})
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""C:\Users\ahaaa\AppData\Local\Programs\Python\Python314\Lib\site-packages\selenium\webdriver\remote\webdriver.py"", line 432, in execute
+    self.error_handler.check_response(response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File ""C:\Users\ahaaa\AppData\Local\Programs\Python\Python314\Lib\site-packages\selenium\webdriver\remote\errorhandler.py"", line 232, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=145.0.7632.160)
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0xb67dd3
+	0xb67e14
+	0x971db0
+	0x9508d3
+	0x9e50fb
+	0x9fb0d9
+	0x9de7d6
+	0x9b0049
+	0x9b0e04
+	0xdc6924
+	0xdc1bf7
+	0xddf5a0
+	0xb80f58
+	0xb8891d
+	0xb70648
+	0xb70812
+	0xb5a21a
+	0x75a45d49
+	0x76ecd81b
+	0x76ecd7a1
+
+"

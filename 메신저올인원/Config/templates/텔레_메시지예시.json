@@ -1,0 +1,83 @@
+{
+  "name": "텔레/메시지예시",
+  "platform": "telegram",
+  "workflow": "telegram_message",
+  "coords": {
+    "chrome_addr": {
+      "x": 1328,
+      "y": -2024
+    },
+    "message_input": {
+      "x": 0,
+      "y": 0
+    },
+    "send_btn": {
+      "x": 0,
+      "y": 0
+    }
+  },
+  "target_file": "",
+  "target_mode": "direct",
+  "target_direct": "https://t.me/tonghab\nhttps://t.me/totohong\nhttps://t.me/totohongbo1\nhttps://t.me/totopopjobab\nhttps://t.me/totoprpr",
+  "message": "❤️‍👨 실행사 찾습니다 !\n\n➡️ 인스타 상위노출 \n➡️ 유튜브 상위노출\n➡️ 직접 운영하시는 실행사 찾습니다. \n\n❤️‍👨 실행사 찾습니다 !\n\n✅ 협업 방향\n➡️ 월 단위로 안정적으로 물량 연결 가능.\n➡️ 총판가(단가) 협의 희망합니다.\n\n❤️‍👨 실행사 찾습니다 !\n\n1:1 채팅 주십시오 ^^\n⚠️ @ssll09823\n⚠️ @ssll09823\n⚠️ @ssll09823\n\n❤️‍👨 실행사 찾습니다 !",
+  "use_image": true,
+  "image_mode": "file",
+  "image_path": "C:/Users/ahaaa/Downloads/KakaoTalk_20260309_112311296.png",
+  "img_order": "after",
+  "image_source_coord": {
+    "x": 0,
+    "y": 0
+  },
+  "image_drop_coord": {
+    "x": 0,
+    "y": 0
+  },
+  "image_delays": {
+    "after_image_click": 0.5,
+    "after_drag_start": 0.2,
+    "after_drop": 0.3,
+    "after_enter": 0.5,
+    "cb_after_paste": 0.5,
+    "cb_after_send": 0.5,
+    "file_dialog_open": 1.0,
+    "file_folder_move": 1.0,
+    "file_after_open": 1.0
+  },
+  "tg_chrome_load": 2.0,
+  "tg_telegram_open": 2.0,
+  "tg_join_click": 2.0,
+  "tg_after_type": 2.0,
+  "tg_after_send": 2.0,
+  "tg_after_back": 2.0,
+  "tg_between_min": 1.0,
+  "tg_between_max": 3.0,
+  "send_method": "enter",
+  "close_after_send": true,
+  "close_method": "esc",
+  "send_btn_coord": {
+    "x": 0,
+    "y": 0
+  },
+  "close_btn_coord": {
+    "x": 0,
+    "y": 0
+  },
+  "tg_input_method": "direct",
+  "tg_message_input_coord": {
+    "x": 0,
+    "y": 0
+  },
+  "tg_attach_btn_coord": {
+    "x": 66,
+    "y": -1052
+  },
+  "join_first": false,
+  "join_btn_coord": {
+    "x": 0,
+    "y": 0
+  },
+  "tg_filename_input_coord": {
+    "x": 953,
+    "y": -908
+  }
+}

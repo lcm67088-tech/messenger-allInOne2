@@ -1,0 +1,83 @@
+{
+  "name": "텔레/가입+메시지",
+  "platform": "telegram",
+  "workflow": "telegram_message",
+  "coords": {
+    "chrome_addr": {
+      "x": 1944,
+      "y": -1047
+    },
+    "message_input": {
+      "x": 244,
+      "y": -365
+    },
+    "send_btn": {
+      "x": 512,
+      "y": -317
+    }
+  },
+  "target_file": "",
+  "target_mode": "direct",
+  "target_direct": "https://t.me/totovely2com\nhttps://t.me/wndtp\nhttps://t.me/zbtv247\nhttps://t.me/BDBD999\nhttps://t.me/to_hongbo\nhttps://t.me/telemartss",
+  "message": "카카오톡 : G2046\n\n안녕하세요! 플레이스 실행사 입니다 ^^\n\n✅ 중간 대행 없는 직통 실행사\n✅ 업계 최저가 보장\n✅ 전담 매니저 다수 배정\n✅ 실시간 빠른 피드백\n\n현재 300개 이상의 업체와 함께하고 있습니다!\n\n📢 대행사 & 총판 모집 중\n- 경쟁력 있는 단가 제공\n- 안정적인 물량 보장\n- 전문 상담 지원\n\n💬 부담 없이 문의만 주셔도 환영합니다!\n카톡 ID 친추 후 바로 문의 주시면\n즉시 답변 드리겠습니다 ^^\n\n📱 카톡ID: G2046",
+  "use_image": true,
+  "image_mode": "file",
+  "image_path": "C:/Users/ahaaa/OneDrive - 경남대학교/문서/카카오톡 받은 파일/KakaoTalk_20260416_150537289.jpg",
+  "img_order": "before",
+  "image_source_coord": {
+    "x": 0,
+    "y": 0
+  },
+  "image_drop_coord": {
+    "x": 0,
+    "y": 0
+  },
+  "image_delays": {
+    "after_image_click": 0.5,
+    "after_drag_start": 0.2,
+    "after_drop": 0.3,
+    "after_enter": 0.5,
+    "cb_after_paste": 0.5,
+    "cb_after_send": 0.5,
+    "file_dialog_open": 2.0,
+    "file_folder_move": 2.0,
+    "file_after_open": 2.0
+  },
+  "tg_chrome_load": 2.0,
+  "tg_telegram_open": 2.0,
+  "tg_join_click": 2.0,
+  "tg_after_type": 2.0,
+  "tg_after_send": 2.0,
+  "tg_after_back": 2.0,
+  "tg_between_min": 3.0,
+  "tg_between_max": 7.0,
+  "send_method": "enter",
+  "close_after_send": true,
+  "close_method": "esc",
+  "send_btn_coord": {
+    "x": 0,
+    "y": 0
+  },
+  "close_btn_coord": {
+    "x": 0,
+    "y": 0
+  },
+  "tg_input_method": "direct",
+  "tg_message_input_coord": {
+    "x": 0,
+    "y": 0
+  },
+  "tg_attach_btn_coord": {
+    "x": 47,
+    "y": -184
+  },
+  "join_first": true,
+  "join_btn_coord": {
+    "x": 265,
+    "y": -191
+  },
+  "tg_filename_input_coord": {
+    "x": 1002,
+    "y": -176
+  }
+}

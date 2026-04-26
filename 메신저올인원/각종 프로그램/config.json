@@ -1,0 +1,47 @@
+{
+  "version": "3.0",
+  "coords": {
+    "id_add_button": [
+      3602,
+      877
+    ],
+    "chat_button": [
+      3655,
+      1287
+    ],
+    "profile_area": [
+      3025,
+      72
+    ],
+    "confirm_button": [
+      3176,
+      571
+    ],
+    "close_button": [
+      3453,
+      16
+    ]
+  },
+  "ocr_area": [
+    3407,
+    1238,
+    3776,
+    1329
+  ],
+  "timing": {
+    "after_ctrlA": 2.0,
+    "after_click": 1.5,
+    "after_input": 2.5,
+    "after_ocr": 3.0,
+    "after_tab": 0.5
+  },
+  "csv_path": "C:/Users/ahaaa/Downloads/카카오톡_ID목록_최종.csv",
+  "output_path": "",
+  "counter_start": 1,
+  "retry_count": 2,
+  "auto_save_config": true,
+  "log_to_file": true,
+  "log_dir": "logs",
+  "last_processed_idx": 3,
+  "resume_mode": true
+}

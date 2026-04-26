@@ -1,0 +1,11 @@
+{
+  "name": "텔레/그룹가입/테스트",
+  "template_name": "텔레/그룹가입예시(실행해도됨)",
+  "platform": "telegram",
+  "workflow": "telegram_join",
+  "schedule_on": false,
+  "schedule_mode": "time",
+  "schedule_time": "09:00",
+  "schedule_interval": 24,
+  "schedule_label": "없음"
+}

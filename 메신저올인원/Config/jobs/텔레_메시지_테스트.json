@@ -1,0 +1,31 @@
+{
+  "name": "텔레/메시지/테스트",
+  "template_name": "텔레/메시지예시",
+  "platform": "telegram",
+  "workflow": "telegram_message",
+  "schedule_on": false,
+  "schedule_mode": "time",
+  "schedule_time": "09:00",
+  "schedule_interval": 24,
+  "schedule_label": "없음",
+  "days": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "schedule_times": [],
+  "interval_variance": 0,
+  "enabled": true,
+  "last_run": "",
+  "last_run_date": "",
+  "schedule_days": [
+    "월",
+    "화",
+    "수",
+    "목",
+    "금"
+  ],
+  "_migrated_version": 10
+}

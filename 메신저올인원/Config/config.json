@@ -1,0 +1,27 @@
+{
+  "sheet_url": "https://docs.google.com/spreadsheets/d/17FeZ6QSDjfVJanOly36jsGPaImZCMzol7bM8HvnUuRA/export?format=csv&gid=0",
+  "hotkeys": {
+    "F1": "start",
+    "F2": "stop",
+    "F3": "cap1",
+    "F4": "cap2",
+    "F5": "cap3",
+    "F6": "cap4",
+    "F7": "cap5",
+    "F8": "ocr_start",
+    "F9": "ocr_end",
+    "F10": "ocr_test"
+  },
+  "paths": {
+    "logs": "C:\\Users\\ahaaa\\OneDrive\\바탕 화면\\각종 프로그램\\메신저올인원\\logs",
+    "output": "C:\\Users\\ahaaa\\OneDrive\\바탕 화면\\각종 프로그램\\메신저올인원\\data",
+    "tesseract": "C:\\Program Files\\Tesseract-OCR\\tesseract.exe"
+  },
+  "mouse": {
+    "click_delay": 0.1,
+    "input_delay": 0.05,
+    "jitter": 0.3,
+    "pause": 0.05,
+    "failsafe": true
+  }
+}

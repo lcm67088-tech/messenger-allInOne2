@@ -1,0 +1,11 @@
+{
+  "name": "가뿌/테스트",
+  "template_name": "가뿌/테스트",
+  "platform": "kakao",
+  "workflow": "kakao_openchat",
+  "schedule_on": false,
+  "schedule_mode": "time",
+  "schedule_time": "09:00",
+  "schedule_interval": 24,
+  "schedule_label": "없음"
+}

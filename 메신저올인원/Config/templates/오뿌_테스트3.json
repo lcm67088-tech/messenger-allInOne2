@@ -1,0 +1,66 @@
+{
+  "name": "오뿌/테스트3",
+  "platform": "kakao",
+  "workflow": "kakao_openchat",
+  "coords": {},
+  "target_file": "",
+  "target_mode": "direct",
+  "target_direct": "",
+  "message": "10행X2열 테스트3\n10행X2열 테스트 32\n22\n10행X2열 테스트 10행X2열  테스트 2\n10행X2열  테스트 2\n 10행X2열 테스트\n10행X2열 테스트 \n\n10행X2열 테스트 10행X2열  테스트 \n10행X2열  테스트 \n \n10행X2열 테스트\n10행X2열 테스트 \n\n10행X2열 테스트 10행X2열  테스트 \n10행X2열  테스트 \n \n10행X2열 테스트\n10행X2열 테스트 \n\n10행X2열 테스트 10행X2열  테스트 \n10행X2열  테스트",
+  "use_image": false,
+  "image_mode": "dragdrop",
+  "image_path": "",
+  "img_order": "after",
+  "image_source_coord": {
+    "x": 2542,
+    "y": -1903
+  },
+  "image_drop_coord": {
+    "x": 2858,
+    "y": -1633
+  },
+  "image_delays": {
+    "after_image_click": 1.0,
+    "after_drag_start": 1.0,
+    "after_drop": 1.0,
+    "after_enter": 1.0,
+    "cb_after_paste": 0.5,
+    "cb_after_send": 0.5,
+    "file_dialog_open": 1.0,
+    "file_folder_move": 0.8,
+    "file_after_open": 0.5
+  },
+  "oc_after_open": 1.0,
+  "oc_after_click": 1.0,
+  "oc_after_type": 1.0,
+  "oc_after_send": 1.0,
+  "oc_after_close": 1.0,
+  "between_chats": 6.0,
+  "between_jitter": 1.0,
+  "grid_config": {
+    "start_x": 1326,
+    "start_y": -1190,
+    "cell_width": 200.0,
+    "cell_height": 30.4,
+    "column_count": 1,
+    "row_count": 10,
+    "column_gap": 200.0,
+    "scan_dir": "col"
+  },
+  "input_method": "direct",
+  "send_method": "enter",
+  "close_after_send": true,
+  "close_method": "esc",
+  "send_btn_coord": {
+    "x": 0,
+    "y": 0
+  },
+  "close_btn_coord": {
+    "x": 0,
+    "y": 0
+  },
+  "message_input_coord": {
+    "x": 0,
+    "y": 0
+  }
+}

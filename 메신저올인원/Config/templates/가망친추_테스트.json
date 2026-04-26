@@ -1,0 +1,46 @@
+{
+  "name": "가망친추/테스트",
+  "platform": "kakao",
+  "workflow": "kakao_friend",
+  "coords": {
+    "id_add_btn": {
+      "x": 2954,
+      "y": -1462
+    },
+    "status_dot": {
+      "x": 3012,
+      "y": -1050
+    },
+    "friend_add_btn": {
+      "x": 2911,
+      "y": -1057
+    },
+    "profile_area": {
+      "x": 2389,
+      "y": -2104
+    },
+    "confirm_btn": {
+      "x": 2532,
+      "y": -1581
+    },
+    "close_btn": {
+      "x": 2805,
+      "y": -2135
+    }
+  },
+  "target_file": "",
+  "target_mode": "direct",
+  "target_direct": "pass51\nirreplaceabley\nrokyj\nahah941\ndlawocl\nlucky-jay\ncom57\nsd___\n1234uuzz\nssdo77\nmuon94\nsswghost\nbbcc88\nalsoyou03\nsarah03188\nad52\nn_cheol\nrlaenska\ns5908455\nWL77777\nreview_KING\npat5252\naddhong2\nsns8947\nmeme99\nN_shopping\nhhhaaaaa\nksks8877\nreviev_KING\ngti111\nMks0628\nkmw4185\nzzkk234\nmanager9701\nviralh\nlogixwin\nsuniverse100\nTPO1234\nreviw_KING\njbmj07\nmade8310\nADLABGON\nkkonw\nhxxnm77\nhn-gw\nshs7778\n97ss\nth2998\nbeeso\nsamgachae\nljo2213mm\nrin990\nblackping\nqudrms\nLWJ77\nazazt\nid119\nbldg6688\nwonso26\nhee8828\nddee555\nskxoqkfl\nadmk9988\npasta15\nlsm02\nyni6154\nkoko03188\nlolfa\njominkyu\nyuna7800\naian77\nMK9796\nnkcomm\nw1130w\njis2615\nm4982\nhs152637\ndjdnffla302\nviralno1\nalstj4492\npjy94\nindex928\nrevuvu\no1130o\ndbsrldudwkd\nwhaketer\nkkk7005425\nmc100479\nk1966",
+  "message": "",
+  "rename_existing": true,
+  "id_keyword": "가망",
+  "id_start_num": 1,
+  "id_digits": 0,
+  "after_ctrlA": 2.0,
+  "after_click": 2.0,
+  "after_input": 2.0,
+  "after_color_wait": 1.0,
+  "after_tab": 0.5,
+  "between_chats": 2.0,
+  "between_jitter": 1.0
+}

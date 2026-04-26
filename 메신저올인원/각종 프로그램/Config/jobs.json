@@ -1,0 +1,20 @@
+[
+  {
+    "name": "adad",
+    "account_idx": 0,
+    "account_id": "papa1757",
+    "community": "셀프모아",
+    "board": "",
+    "content_idx": 0,
+    "schedule": {
+      "use_global": true,
+      "enabled": false
+    },
+    "pre_delay_min": null,
+    "pre_delay_max": null,
+    "delay_min": null,
+    "delay_max": null,
+    "enabled": true,
+    "memo": ""
+  }
+]

@@ -1,0 +1,61 @@
+{
+  "active_preset": "ddd",
+  "presets": {
+    "default": {
+      "start": null,
+      "cell_width": 200.0,
+      "cell_height": 30.8,
+      "bundle_count": 10,
+      "column_count": 5,
+      "row_count": 4,
+      "column_gap": 200.0,
+      "action_delay": 1.0,
+      "between_chats": 0.0,
+      "between_jitter": 0.0,
+      "send_mode": "enter",
+      "send_btn": null,
+      "close_after_send": true,
+      "close_mode": "altf4",
+      "close_btn": null,
+      "message": "",
+      "image_mode": "none",
+      "image_timing": "before",
+      "image_source_coord": null,
+      "image_drop_coord": null,
+      "image_delays": {
+        "after_image_click": 0.5,
+        "after_drag_start": 0.2,
+        "after_drop": 0.3,
+        "after_enter": 0.5
+      }
+    },
+    "ddd": {
+      "start": null,
+      "cell_width": 200.0,
+      "cell_height": 30.8,
+      "bundle_count": 10,
+      "column_count": 5,
+      "row_count": 4,
+      "column_gap": 200.0,
+      "action_delay": 1.0,
+      "between_chats": 0.0,
+      "between_jitter": 0.0,
+      "send_mode": "enter",
+      "send_btn": null,
+      "close_after_send": true,
+      "close_mode": "altf4",
+      "close_btn": null,
+      "message": "",
+      "image_mode": "none",
+      "image_timing": "before",
+      "image_source_coord": null,
+      "image_drop_coord": null,
+      "image_delays": {
+        "after_image_click": 0.5,
+        "after_drag_start": 0.2,
+        "after_drop": 0.3,
+        "after_enter": 0.5
+      }
+    }
+  }
+}

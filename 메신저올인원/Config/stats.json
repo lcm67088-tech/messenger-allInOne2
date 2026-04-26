@@ -1,0 +1,49 @@
+{
+  "records": [
+    {
+      "ts": "2026-03-09 10:24",
+      "job": "오뿌/아뿌테스트",
+      "platform": "kakao",
+      "workflow": "kakao_openchat",
+      "succ": 0,
+      "fail": 0,
+      "rate": "0%"
+    },
+    {
+      "ts": "2026-03-09 10:25",
+      "job": "오뿌/아뿌테스트",
+      "platform": "kakao",
+      "workflow": "kakao_openchat",
+      "succ": 0,
+      "fail": 0,
+      "rate": "0%"
+    },
+    {
+      "ts": "2026-03-09 10:25",
+      "job": "오뿌/아뿌테스트",
+      "platform": "kakao",
+      "workflow": "kakao_openchat",
+      "succ": 0,
+      "fail": 0,
+      "rate": "0%"
+    },
+    {
+      "ts": "2026-03-09 15:33",
+      "job": "텔레/메시지/테스트",
+      "platform": "telegram",
+      "workflow": "telegram_message",
+      "succ": 2,
+      "fail": 0,
+      "rate": "100.0%"
+    },
+    {
+      "ts": "2026-03-09 17:43",
+      "job": "텔레/메시지/테스트",
+      "platform": "telegram",
+      "workflow": "telegram_message",
+      "succ": 5,
+      "fail": 0,
+      "rate": "100.0%"
+    }
+  ]
+}

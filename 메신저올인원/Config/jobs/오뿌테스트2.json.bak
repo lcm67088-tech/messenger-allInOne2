@@ -1,0 +1,24 @@
+{
+  "name": "오뿌테스트2",
+  "template_name": "오뿌/테스트2",
+  "platform": "kakao",
+  "workflow": "kakao_openchat",
+  "schedule_on": true,
+  "schedule_mode": "time",
+  "schedule_days": [
+    "월",
+    "화",
+    "수",
+    "목",
+    "금"
+  ],
+  "schedule_times": [
+    "15:05"
+  ],
+  "schedule_time": "15:05",
+  "schedule_interval": 24,
+  "schedule_label": "월화수목금 15:05",
+  "enabled": true,
+  "last_run": "2026-03-13 15:07:29",
+  "last_run_date": "2026-03-13"
+}

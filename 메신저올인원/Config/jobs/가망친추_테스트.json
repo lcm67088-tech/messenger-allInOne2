@@ -1,0 +1,32 @@
+{
+  "name": "가망친추/테스트",
+  "template_name": "가망친추/테스트",
+  "platform": "kakao",
+  "workflow": "kakao_friend",
+  "schedule_on": false,
+  "schedule_mode": "time",
+  "schedule_time": "09:00",
+  "schedule_interval": 24,
+  "schedule_label": "없음",
+  "_file": "C:\\Users\\ahaaa\\OneDrive\\바탕 화면\\각종 프로그램\\메신저올인원\\Config\\jobs\\가망친추_테스트.json",
+  "enabled": false,
+  "days": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "schedule_times": [],
+  "interval_variance": 0,
+  "last_run": "",
+  "last_run_date": "",
+  "schedule_days": [
+    "월",
+    "화",
+    "수",
+    "목",
+    "금"
+  ],
+  "_migrated_version": 10
+}

@@ -1,0 +1,397 @@
+﻿2026-03-18 10:57:23,DEBUG,투잡커넥트,ADAD,[드라이버] Chrome 시작 (시도 1)
+2026-03-18 10:57:23,DEBUG,투잡커넥트,ADAD,[드라이버] 감지된 Chrome 버전: 145
+2026-03-18 10:57:26,DEBUG,투잡커넥트,ADAD,[드라이버] Chrome 실행 완료
+2026-03-18 10:57:26,DEBUG,투잡커넥트,ADAD,[로그인 STEP1] 메인 URL 진입: https://www.tojobcn.com
+2026-03-18 10:57:32,DEBUG,투잡커넥트,ADAD,[로그인 STEP2] 팝업 닫기 1차
+2026-03-18 10:57:33,DEBUG,투잡커넥트,ADAD,[로그인 STEP2] 팝업 닫기 2차 (지연 팝업 대응)
+2026-03-18 10:57:33,DEBUG,투잡커넥트,ADAD,[로그인 STEP2.5] 로그인 전용 URL 이동: https://www.tojobcn.com/bbs/login.php
+2026-03-18 10:57:33,WARN,투잡커넥트,ADAD,"재시도 1/2 – [InvalidSessionIdException] Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0x827dd3
+	0x827e14
+	0x631bee
+	0x66f2d5
+	0x69e8f6
+	0x69a491
+	0x699ab2
+	0x60500e
+	0x6055ae
+	0x605a8d
+	0xa86924
+	0xa81bf7
+	0xa9f5a0
+	0x840f58
+	0x84891d
+	0x604c69
+	0x6042b0
+	0xbe876f
+	0x76035d49
+	0x77cad81b
+	0x77cad7a1
+"
+2026-03-18 10:57:33,DEBUG,투잡커넥트,ADAD,"[스택트레이스 (시도 1)]
+Traceback (most recent call last):
+  File ""C:\Users\ahaaa\OneDrive\바탕 화면\각종 프로그램\각종 프로그램\community_poster_v5.20.py"", line 778, in _run_task
+    self._post_smarteditor(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        driver, site_cfg, account, content,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        cb, dbg, dismiss_alert, close_all_popups,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        find_visible, text_to_html, acc_id, acc_pw
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File ""C:\Users\ahaaa\OneDrive\바탕 화면\각종 프로그램\각종 프로그램\community_poster_v5.20.py"", line 1727, in _post_smarteditor
+    self._login_common(driver, site_cfg, acc_id, acc_pw,
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                       cb, dbg, dismiss_alert, close_all_popups, find_visible)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""C:\Users\ahaaa\OneDrive\바탕 화면\각종 프로그램\각종 프로그램\community_poster_v5.20.py"", line 856, in _login_common
+    driver.get(login_url)
+    ~~~~~~~~~~^^^^^^^^^^^
+  File ""C:\Users\ahaaa\AppData\Local\Programs\Python\Python314\Lib\site-packages\undetected_chromedriver\__init__.py"", line 665, in get
+    return super().get(url)
+           ~~~~~~~~~~~^^^^^
+  File ""C:\Users\ahaaa\AppData\Local\Programs\Python\Python314\Lib\site-packages\selenium\webdriver\remote\webdriver.py"", line 452, in get
+    self.execute(Command.GET, {""url"": url})
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""C:\Users\ahaaa\AppData\Local\Programs\Python\Python314\Lib\site-packages\selenium\webdriver\remote\webdriver.py"", line 432, in execute
+    self.error_handler.check_response(response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File ""C:\Users\ahaaa\AppData\Local\Programs\Python\Python314\Lib\site-packages\selenium\webdriver\remote\errorhandler.py"", line 232, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.InvalidSessionIdException: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0x827dd3
+	0x827e14
+	0x631bee
+	0x66f2d5
+	0x69e8f6
+	0x69a491
+	0x699ab2
+	0x60500e
+	0x6055ae
+	0x605a8d
+	0xa86924
+	0xa81bf7
+	0xa9f5a0
+	0x840f58
+	0x84891d
+	0x604c69
+	0x6042b0
+	0xbe876f
+	0x76035d49
+	0x77cad81b
+	0x77cad7a1
+
+"
+2026-03-18 10:57:36,DEBUG,투잡커넥트,ADAD,[드라이버] Chrome 시작 (시도 2)
+2026-03-18 10:57:36,DEBUG,투잡커넥트,ADAD,[드라이버] 감지된 Chrome 버전: 145
+2026-03-18 10:57:37,DEBUG,투잡커넥트,ADAD,[드라이버] Chrome 실행 완료
+2026-03-18 10:57:37,DEBUG,투잡커넥트,ADAD,[로그인 STEP1] 메인 URL 진입: https://www.tojobcn.com
+2026-03-18 10:57:41,DEBUG,투잡커넥트,ADAD,[로그인 STEP2] 팝업 닫기 1차
+2026-03-18 10:57:42,DEBUG,투잡커넥트,ADAD,[로그인 STEP2] 팝업 닫기 2차 (지연 팝업 대응)
+2026-03-18 10:57:42,DEBUG,투잡커넥트,ADAD,[로그인 STEP2.5] 로그인 전용 URL 이동: https://www.tojobcn.com/bbs/login.php
+2026-03-18 10:57:42,WARN,투잡커넥트,ADAD,"재시도 2/2 – [NoSuchWindowException] Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=145.0.7632.160)
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0xaa7dd3
+	0xaa7e14
+	0x8b1db0
+	0x8908d3
+	0x9250fb
+	0x93b0d9
+	0x91e7d6
+	0x8f0049
+	0x8f0e04
+	0xd06924
+	0xd01bf7
+	0xd1f5a0
+	0xac0f58
+	0xac891d
+	0xab0648
+	0xab0812
+	0xa9a21a
+	0x76035d49
+	0x77cad81b
+	0x77cad7a1
+"
+2026-03-18 10:57:42,DEBUG,투잡커넥트,ADAD,"[스택트레이스 (시도 2)]
+Traceback (most recent call last):
+  File ""C:\Users\ahaaa\OneDrive\바탕 화면\각종 프로그램\각종 프로그램\community_poster_v5.20.py"", line 778, in _run_task
+    self._post_smarteditor(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        driver, site_cfg, account, content,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        cb, dbg, dismiss_alert, close_all_popups,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        find_visible, text_to_html, acc_id, acc_pw
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File ""C:\Users\ahaaa\OneDrive\바탕 화면\각종 프로그램\각종 프로그램\community_poster_v5.20.py"", line 1727, in _post_smarteditor
+    self._login_common(driver, site_cfg, acc_id, acc_pw,
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                       cb, dbg, dismiss_alert, close_all_popups, find_visible)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""C:\Users\ahaaa\OneDrive\바탕 화면\각종 프로그램\각종 프로그램\community_poster_v5.20.py"", line 856, in _login_common
+    driver.get(login_url)
+    ~~~~~~~~~~^^^^^^^^^^^
+  File ""C:\Users\ahaaa\AppData\Local\Programs\Python\Python314\Lib\site-packages\undetected_chromedriver\__init__.py"", line 665, in get
+    return super().get(url)
+           ~~~~~~~~~~~^^^^^
+  File ""C:\Users\ahaaa\AppData\Local\Programs\Python\Python314\Lib\site-packages\selenium\webdriver\remote\webdriver.py"", line 452, in get
+    self.execute(Command.GET, {""url"": url})
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""C:\Users\ahaaa\AppData\Local\Programs\Python\Python314\Lib\site-packages\selenium\webdriver\remote\webdriver.py"", line 432, in execute
+    self.error_handler.check_response(response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File ""C:\Users\ahaaa\AppData\Local\Programs\Python\Python314\Lib\site-packages\selenium\webdriver\remote\errorhandler.py"", line 232, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=145.0.7632.160)
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0xaa7dd3
+	0xaa7e14
+	0x8b1db0
+	0x8908d3
+	0x9250fb
+	0x93b0d9
+	0x91e7d6
+	0x8f0049
+	0x8f0e04
+	0xd06924
+	0xd01bf7
+	0xd1f5a0
+	0xac0f58
+	0xac891d
+	0xab0648
+	0xab0812
+	0xa9a21a
+	0x76035d49
+	0x77cad81b
+	0x77cad7a1
+
+"
+2026-03-18 10:57:45,DEBUG,투잡커넥트,ADAD,[드라이버] Chrome 시작 (시도 3)
+2026-03-18 10:57:45,DEBUG,투잡커넥트,ADAD,[드라이버] 감지된 Chrome 버전: 145
+2026-03-18 10:57:46,DEBUG,투잡커넥트,ADAD,[드라이버] Chrome 실행 완료
+2026-03-18 10:57:46,DEBUG,투잡커넥트,ADAD,[로그인 STEP1] 메인 URL 진입: https://www.tojobcn.com
+2026-03-18 10:57:51,DEBUG,투잡커넥트,ADAD,[로그인 STEP2] 팝업 닫기 1차
+2026-03-18 10:57:52,DEBUG,투잡커넥트,ADAD,[로그인 STEP2] 팝업 닫기 2차 (지연 팝업 대응)
+2026-03-18 10:57:52,DEBUG,투잡커넥트,ADAD,[로그인 STEP2.5] 로그인 전용 URL 이동: https://www.tojobcn.com/bbs/login.php
+2026-03-18 10:57:52,ERROR,투잡커넥트,ADAD,"최종 실패 – [InvalidSessionIdException] Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0xdc7dd3
+	0xdc7e14
+	0xbd1bee
+	0xc0f2d5
+	0xc3e8f6
+	0xc3a491
+	0xc39ab2
+	0xba500e
+	0xba55ae
+	0xba5a8d
+	0x1026924
+	0x1021bf7
+	0x103f5a0
+	0xde0f58
+	0xde891d
+	0xba4c69
+	0xba42b0
+	0x118876f
+	0x76035d49
+	0x77cad81b
+	0x77cad7a1
+"
+2026-03-18 10:57:52,DEBUG,투잡커넥트,ADAD,"[스택트레이스 (최종)]
+Traceback (most recent call last):
+  File ""C:\Users\ahaaa\OneDrive\바탕 화면\각종 프로그램\각종 프로그램\community_poster_v5.20.py"", line 778, in _run_task
+    self._post_smarteditor(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        driver, site_cfg, account, content,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        cb, dbg, dismiss_alert, close_all_popups,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        find_visible, text_to_html, acc_id, acc_pw
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File ""C:\Users\ahaaa\OneDrive\바탕 화면\각종 프로그램\각종 프로그램\community_poster_v5.20.py"", line 1727, in _post_smarteditor
+    self._login_common(driver, site_cfg, acc_id, acc_pw,
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                       cb, dbg, dismiss_alert, close_all_popups, find_visible)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""C:\Users\ahaaa\OneDrive\바탕 화면\각종 프로그램\각종 프로그램\community_poster_v5.20.py"", line 856, in _login_common
+    driver.get(login_url)
+    ~~~~~~~~~~^^^^^^^^^^^
+  File ""C:\Users\ahaaa\AppData\Local\Programs\Python\Python314\Lib\site-packages\undetected_chromedriver\__init__.py"", line 665, in get
+    return super().get(url)
+           ~~~~~~~~~~~^^^^^
+  File ""C:\Users\ahaaa\AppData\Local\Programs\Python\Python314\Lib\site-packages\selenium\webdriver\remote\webdriver.py"", line 452, in get
+    self.execute(Command.GET, {""url"": url})
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""C:\Users\ahaaa\AppData\Local\Programs\Python\Python314\Lib\site-packages\selenium\webdriver\remote\webdriver.py"", line 432, in execute
+    self.error_handler.check_response(response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File ""C:\Users\ahaaa\AppData\Local\Programs\Python\Python314\Lib\site-packages\selenium\webdriver\remote\errorhandler.py"", line 232, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.InvalidSessionIdException: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0xdc7dd3
+	0xdc7e14
+	0xbd1bee
+	0xc0f2d5
+	0xc3e8f6
+	0xc3a491
+	0xc39ab2
+	0xba500e
+	0xba55ae
+	0xba5a8d
+	0x1026924
+	0x1021bf7
+	0x103f5a0
+	0xde0f58
+	0xde891d
+	0xba4c69
+	0xba42b0
+	0x118876f
+	0x76035d49
+	0x77cad81b
+	0x77cad7a1
+
+"
+2026-03-18 11:32:01,DEBUG,셀프모아,papa1757,[드라이버] Chrome 시작 (시도 1)
+2026-03-18 11:32:01,DEBUG,셀프모아,papa1757,[드라이버] 감지된 Chrome 버전: 145
+2026-03-18 11:32:04,DEBUG,셀프모아,papa1757,[드라이버] Chrome 실행 완료
+2026-03-18 11:32:04,DEBUG,셀프모아,papa1757,[로그인 STEP1] 메인 URL 진입: http://m.selfmoa.com
+2026-03-18 11:32:06,DEBUG,셀프모아,papa1757,[로그인 STEP2] 팝업 닫기 1차
+2026-03-18 11:32:10,DEBUG,셀프모아,papa1757,[로그인 STEP2] 팝업 닫기 2차 (지연 팝업 대응)
+2026-03-18 11:32:10,DEBUG,셀프모아,papa1757,[로그인 STEP3] login_btn_sel 없음 – 페이지에 바로 폼 있음
+2026-03-18 11:32:10,DEBUG,셀프모아,papa1757,"[로그인 STEP4] ID 입력 (셀렉터: input[name='mb_id'], #outlogin_mb_id)"
+2026-03-18 11:32:10,WARN,셀프모아,papa1757,"재시도 1/2 – [Exception] 요소를 찾을 수 없음: input[name='mb_id'], #outlogin_mb_id"
+2026-03-18 11:32:10,DEBUG,셀프모아,papa1757,"[스택트레이스 (시도 1)]
+Traceback (most recent call last):
+  File ""C:\Users\ahaaa\OneDrive\바탕 화면\각종 프로그램\각종 프로그램\community_poster_v5.20.py"", line 785, in _run_task
+    self._post_smarteditor(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        driver, site_cfg, account, content,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        cb, dbg, dismiss_alert, close_all_popups,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        find_visible, text_to_html, acc_id, acc_pw
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File ""C:\Users\ahaaa\OneDrive\바탕 화면\각종 프로그램\각종 프로그램\community_poster_v5.20.py"", line 1727, in _post_smarteditor
+    self._login_common(driver, site_cfg, acc_id, acc_pw,
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                       cb, dbg, dismiss_alert, close_all_popups, find_visible)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""C:\Users\ahaaa\OneDrive\바탕 화면\각종 프로그램\각종 프로그램\community_poster_v5.20.py"", line 900, in _login_common
+    id_el = find_visible(driver, id_sel)
+  File ""C:\Users\ahaaa\OneDrive\바탕 화면\각종 프로그램\각종 프로그램\community_poster_v5.20.py"", line 733, in find_visible
+    raise Exception(f""요소를 찾을 수 없음: {selector}"")
+Exception: 요소를 찾을 수 없음: input[name='mb_id'], #outlogin_mb_id
+"
+2026-03-18 11:32:13,DEBUG,셀프모아,papa1757,[드라이버] Chrome 시작 (시도 2)
+2026-03-18 11:32:13,DEBUG,셀프모아,papa1757,[드라이버] 감지된 Chrome 버전: 145
+2026-03-18 11:32:14,DEBUG,셀프모아,papa1757,[드라이버] Chrome 실행 완료
+2026-03-18 11:32:14,DEBUG,셀프모아,papa1757,[로그인 STEP1] 메인 URL 진입: http://m.selfmoa.com
+2026-03-18 11:32:17,DEBUG,셀프모아,papa1757,[로그인 STEP2] 팝업 닫기 1차
+2026-03-18 11:32:21,DEBUG,셀프모아,papa1757,[로그인 STEP2] 팝업 닫기 2차 (지연 팝업 대응)
+2026-03-18 11:32:24,DEBUG,셀프모아,papa1757,[로그인 STEP3] login_btn_sel 없음 – 페이지에 바로 폼 있음
+2026-03-18 11:32:24,DEBUG,셀프모아,papa1757,"[로그인 STEP4] ID 입력 (셀렉터: input[name='mb_id'], #outlogin_mb_id)"
+2026-03-18 11:32:24,WARN,셀프모아,papa1757,"재시도 2/2 – [Exception] 요소를 찾을 수 없음: input[name='mb_id'], #outlogin_mb_id"
+2026-03-18 11:32:24,DEBUG,셀프모아,papa1757,"[스택트레이스 (시도 2)]
+Traceback (most recent call last):
+  File ""C:\Users\ahaaa\OneDrive\바탕 화면\각종 프로그램\각종 프로그램\community_poster_v5.20.py"", line 785, in _run_task
+    self._post_smarteditor(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        driver, site_cfg, account, content,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        cb, dbg, dismiss_alert, close_all_popups,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        find_visible, text_to_html, acc_id, acc_pw
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File ""C:\Users\ahaaa\OneDrive\바탕 화면\각종 프로그램\각종 프로그램\community_poster_v5.20.py"", line 1727, in _post_smarteditor
+    self._login_common(driver, site_cfg, acc_id, acc_pw,
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                       cb, dbg, dismiss_alert, close_all_popups, find_visible)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""C:\Users\ahaaa\OneDrive\바탕 화면\각종 프로그램\각종 프로그램\community_poster_v5.20.py"", line 900, in _login_common
+    id_el = find_visible(driver, id_sel)
+  File ""C:\Users\ahaaa\OneDrive\바탕 화면\각종 프로그램\각종 프로그램\community_poster_v5.20.py"", line 733, in find_visible
+    raise Exception(f""요소를 찾을 수 없음: {selector}"")
+Exception: 요소를 찾을 수 없음: input[name='mb_id'], #outlogin_mb_id
+"
+2026-03-18 11:32:27,DEBUG,셀프모아,papa1757,[드라이버] Chrome 시작 (시도 3)
+2026-03-18 11:32:27,DEBUG,셀프모아,papa1757,[드라이버] 감지된 Chrome 버전: 145
+2026-03-18 11:32:29,DEBUG,셀프모아,papa1757,[드라이버] Chrome 실행 완료
+2026-03-18 11:32:29,DEBUG,셀프모아,papa1757,[로그인 STEP1] 메인 URL 진입: http://m.selfmoa.com
+2026-03-18 11:32:31,DEBUG,셀프모아,papa1757,[로그인 STEP2] 팝업 닫기 1차
+2026-03-18 11:32:33,DEBUG,셀프모아,papa1757,[로그인 STEP2] 팝업 닫기 2차 (지연 팝업 대응)
+2026-03-18 11:32:33,DEBUG,셀프모아,papa1757,[로그인 STEP3] login_btn_sel 없음 – 페이지에 바로 폼 있음
+2026-03-18 11:32:33,DEBUG,셀프모아,papa1757,"[로그인 STEP4] ID 입력 (셀렉터: input[name='mb_id'], #outlogin_mb_id)"
+2026-03-18 11:32:33,ERROR,셀프모아,papa1757,"최종 실패 – [Exception] 요소를 찾을 수 없음: input[name='mb_id'], #outlogin_mb_id"
+2026-03-18 11:32:33,DEBUG,셀프모아,papa1757,"[스택트레이스 (최종)]
+Traceback (most recent call last):
+  File ""C:\Users\ahaaa\OneDrive\바탕 화면\각종 프로그램\각종 프로그램\community_poster_v5.20.py"", line 785, in _run_task
+    self._post_smarteditor(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        driver, site_cfg, account, content,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        cb, dbg, dismiss_alert, close_all_popups,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        find_visible, text_to_html, acc_id, acc_pw
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File ""C:\Users\ahaaa\OneDrive\바탕 화면\각종 프로그램\각종 프로그램\community_poster_v5.20.py"", line 1727, in _post_smarteditor
+    self._login_common(driver, site_cfg, acc_id, acc_pw,
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                       cb, dbg, dismiss_alert, close_all_popups, find_visible)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""C:\Users\ahaaa\OneDrive\바탕 화면\각종 프로그램\각종 프로그램\community_poster_v5.20.py"", line 900, in _login_common
+    id_el = find_visible(driver, id_sel)
+  File ""C:\Users\ahaaa\OneDrive\바탕 화면\각종 프로그램\각종 프로그램\community_poster_v5.20.py"", line 733, in find_visible
+    raise Exception(f""요소를 찾을 수 없음: {selector}"")
+Exception: 요소를 찾을 수 없음: input[name='mb_id'], #outlogin_mb_id
+"
+2026-03-18 11:32:39,DEBUG,셀프모아,papa1757,[드라이버] Chrome 시작 (시도 1)
+2026-03-18 11:32:39,DEBUG,셀프모아,papa1757,[드라이버] 감지된 Chrome 버전: 145
+2026-03-18 11:32:40,DEBUG,셀프모아,papa1757,[드라이버] Chrome 실행 완료
+2026-03-18 11:32:40,DEBUG,셀프모아,papa1757,[로그인 STEP1] 메인 URL 진입: https://www.selfmoa.com
+2026-03-18 11:32:44,DEBUG,셀프모아,papa1757,[로그인 STEP2] 팝업 닫기 1차
+2026-03-18 11:32:48,DEBUG,셀프모아,papa1757,[로그인 STEP2] 팝업 닫기 2차 (지연 팝업 대응)
+2026-03-18 11:32:51,DEBUG,셀프모아,papa1757,[로그인 STEP3] login_btn_sel 없음 – 페이지에 바로 폼 있음
+2026-03-18 11:32:51,DEBUG,셀프모아,papa1757,"[로그인 STEP4] ID 입력 (셀렉터: input[name='mb_id'], #outlogin_mb_id)"
+2026-03-18 11:32:51,DEBUG,셀프모아,papa1757,[로그인 STEP4] ID 입력 완료: papa1757
+2026-03-18 11:32:51,DEBUG,셀프모아,papa1757,"[로그인 STEP4] PW 입력 (셀렉터: input[name='mb_password'], #outlogin_mb_password)"
+2026-03-18 11:32:51,DEBUG,셀프모아,papa1757,"[로그인 STEP4] 로그인 버튼 클릭 (셀렉터: button[type='submit'].btn-navy, button[type='submit'])"
+2026-03-18 11:32:54,DEBUG,셀프모아,papa1757,[로그인 STEP5] 로그인 후 팝업 처리
+2026-03-18 11:32:57,DEBUG,셀프모아,papa1757,[로그인 STEP6] 로그인 성공 확인 (현재 URL: https://www.selfmoa.com/)
+2026-03-18 11:32:57,DEBUG,셀프모아,papa1757,[셀프모아 분기] _site_name='셀프모아'  main_url=https://www.selfmoa.com
+2026-03-18 11:32:57,DEBUG,셀프모아,papa1757,[SmartEditor STEP7] 글쓰기 페이지 이동: https://www.selfmoa.com/bbs/write.php?bo_table=gita
+2026-03-18 11:33:00,DEBUG,셀프모아,papa1757,[SmartEditor STEP7.5] 분류 선택 시도: '기타' (셀렉터: select[name='ca_name'])
+2026-03-18 11:33:00,DEBUG,셀프모아,papa1757,"[SmartEditor STEP7.5] 분류 선택 실패 (무시): Message: Could not locate element with visible text: 기타; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception
+"
+2026-03-18 11:33:01,DEBUG,셀프모아,papa1757,[SmartEditor STEP8] 제목 입력: ❤️ 인스타 상위노출 최저가 실행사 !! ❤️
+2026-03-18 11:33:01,DEBUG,셀프모아,papa1757,[SmartEditor STEP9] SmartEditor2 에디터 로드 대기
+2026-03-18 11:33:01,DEBUG,셀프모아,papa1757,[SmartEditor STEP9] 에디터 로드 대기 타임아웃 – 직접 삽입 시도
+2026-03-18 11:33:01,DEBUG,셀프모아,papa1757,[SmartEditor STEP9] SmartEditor2 본문 삽입
+2026-03-18 11:33:01,DEBUG,셀프모아,papa1757,[SmartEditor STEP9] 본문 삽입 완료
+2026-03-18 11:33:01,DEBUG,셀프모아,papa1757,[SmartEditor STEP10] 게시 버튼 클릭: #btn_submit
+2026-03-18 11:33:04,DEBUG,셀프모아,papa1757,[SmartEditor STEP10] 게시 후 URL: https://www.selfmoa.com/bbs/write.php?bo_table=gita
+2026-03-18 11:33:04,SUCCESS,셀프모아,papa1757,게시 완료(URL 패턴 미일치) → https://www.selfmoa.com/bbs/write.php?bo_table=gita
