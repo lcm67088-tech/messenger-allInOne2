@@ -1,109 +1,107 @@
 @echo off
-chcp 65001 > nul
-:: ============================================================
-:: build.bat  —  메신저 올인원 EXE 빌드 스크립트  v1.5.0
-:: ============================================================
-:: 실행 순서:
-::   1. inject_token.py 실행 (PAT 주입 + .enc 생성 + SHA-256)
-::   2. PyInstaller 로 EXE 빌드
-::   3. 빌드 결과물 확인
-::
-:: 필요 환경:
-::   pip install pyinstaller pycryptodome
-::
-:: 사용법:
-::   build.bat <GITHUB_PAT> [AES_KEY|auto]
-::   예: build.bat ghp_xxxx... auto
-:: ============================================================
-
+chcp 65001 >nul
 setlocal enabledelayedexpansion
 
-set PAT=%~1
-set AES=%~2
+rem ================================================================
+rem  build.bat  —  메신저 올인원 PyInstaller 빌드 스크립트  v1.5.1
+rem ================================================================
+rem  사용법:
+rem    build.bat
+rem    → PAT 입력 프롬프트 표시 → inject_token.py 실행 → PyInstaller
+rem
+rem  사전 준비:
+rem    pip install pyinstaller pycryptodome
+rem ================================================================
 
-if "%PAT%"=="" (
-    echo.
-    echo [오류] GitHub PAT 를 첫 번째 인수로 전달하세요.
-    echo 사용법: build.bat ^<GITHUB_PAT^> [AES_KEY^|auto]
-    echo.
-    pause
-    exit /b 1
-)
+echo.
+echo ╔══════════════════════════════════════════════════════╗
+echo ║    메신저 올인원  빌드 스크립트  v1.5.1              ║
+echo ╚══════════════════════════════════════════════════════╝
+echo.
 
-if "%AES%"=="" set AES=auto
-
-:: 작업 디렉토리를 스크립트 위치 기준 부모(메신저올인원 루트)로 설정
+rem ── 작업 디렉토리: 프로젝트 루트 ─────────────────────────────
 cd /d "%~dp0.."
+set ROOT=%CD%
+set BUILD_DIR=%ROOT%\build
+set SRC_FILE=%ROOT%\messenger_allInOne_v1.7.0.py
+set ENC_FILE=%ROOT%\messenger_allInOne.enc
+set VER_FILE=%BUILD_DIR%\version.json
 
-echo.
-echo ============================================================
-echo  메신저 올인원  EXE 빌드 시작
-echo ============================================================
+echo  루트   : %ROOT%
+echo  소스   : %SRC_FILE%
+echo  출력   : %ENC_FILE%
 echo.
 
-:: ── Step 1: inject_token.py 실행 ──────────────────────────────
-echo [Step 1] PAT 주입 + 암호화...
-python build\inject_token.py "%PAT%" "%AES%"
-if errorlevel 1 (
-    echo [오류] inject_token.py 실패
+rem ── PAT 입력 ─────────────────────────────────────────────────
+echo [1/4] GitHub PAT 토큰을 입력하세요 (입력 내용은 화면에 표시되지 않음):
+set /p "PAT_TOKEN=  PAT> "
+if "!PAT_TOKEN!"=="" (
+    echo   ❌ PAT 가 입력되지 않았습니다. 종료합니다.
     pause
     exit /b 1
 )
-echo.
+echo   ✅ PAT 입력 완료
 
-:: ── Step 2: PyInstaller 빌드 ──────────────────────────────────
-echo [Step 2] PyInstaller EXE 빌드...
+rem ── inject_token.py 실행 ─────────────────────────────────────
+echo.
+echo [2/4] PAT 난독화 + AES 암호화 실행...
+python "%BUILD_DIR%\inject_token.py" ^
+    --pat "!PAT_TOKEN!" ^
+    --src "%SRC_FILE%" ^
+    --out "%ENC_FILE%" ^
+    --ver "%VER_FILE%"
+
+if errorlevel 1 (
+    echo   ❌ inject_token.py 실패. 종료합니다.
+    pause
+    exit /b 1
+)
+
+rem ── PyInstaller 빌드 ─────────────────────────────────────────
+echo.
+echo [3/4] PyInstaller 빌드 시작...
 pyinstaller ^
     --onefile ^
     --noconsole ^
-    --name "MessengerAllInOne" ^
-    --icon "Config\icon.ico" ^
-    --add-data "core\auth_checker.py;core" ^
-    --add-data "_injected_auto_updater.py;." ^
-    --add-data "Config;Config" ^
+    --name "메신저올인원" ^
+    --add-data "%ROOT%\core\auto_updater.py;core" ^
+    --add-data "%ROOT%\core\auth_checker.py;core" ^
+    --add-data "%ROOT%\core\login_window.py;core" ^
+    --add-data "%ENC_FILE%;." ^
+    --add-data "%ROOT%\Config;Config" ^
     --hidden-import "tkinter" ^
     --hidden-import "tkinter.ttk" ^
     --hidden-import "tkinter.messagebox" ^
-    --hidden-import "tkinter.filedialog" ^
-    --hidden-import "tkinter.simpledialog" ^
     --hidden-import "Crypto.Cipher.AES" ^
     --hidden-import "Crypto.Util.Padding" ^
-    "messenger_allInOne_v1.6.2.py"
+    "%ROOT%\messenger_allInOne_v1.7.0.py"
 
 if errorlevel 1 (
-    echo [오류] PyInstaller 빌드 실패
+    echo   ❌ PyInstaller 빌드 실패. 종료합니다.
     pause
     exit /b 1
 )
+
+rem ── version.json → dist 복사 ─────────────────────────────────
 echo.
-
-:: ── Step 3: 결과물 확인 ────────────────────────────────────────
-echo [Step 3] 빌드 결과물 확인...
-if exist "dist\MessengerAllInOne.exe" (
-    echo   ✅ EXE 생성: dist\MessengerAllInOne.exe
-) else (
-    echo   ❌ EXE 없음
-)
-
-if exist "messenger_allInOne.enc" (
-    echo   ✅ ENC 생성: messenger_allInOne.enc
-) else (
-    echo   ❌ ENC 없음
-)
-
-if exist "_injected_auto_updater.py" (
-    del /q "_injected_auto_updater.py"
-    echo   🗑  _injected_auto_updater.py 정리 완료
-)
+echo [4/4] version.json 을 dist/ 에 복사...
+copy /y "%VER_FILE%" "%ROOT%\dist\version.json" >nul
+copy /y "%ENC_FILE%" "%ROOT%\dist\messenger_allInOne.enc" >nul
 
 echo.
-echo ============================================================
-echo  배포 파일:
-echo    dist\MessengerAllInOne.exe   (GitHub Release 에 업로드)
-echo    messenger_allInOne.enc        (GitHub Release 에 업로드)
-echo    build\version.json            (GitHub 레포에 push)
-echo ============================================================
-echo.
-echo  사용자는 EXE + ENC 를 같은 폴더에 두고 실행하면 됩니다.
+echo ╔══════════════════════════════════════════════════════╗
+echo ║  ✅  빌드 완료!                                      ║
+echo ╠══════════════════════════════════════════════════════╣
+echo ║  배포 파일 (dist\ 폴더):                            ║
+echo ║    - 메신저올인원.exe                                ║
+echo ║    - messenger_allInOne.enc                          ║
+echo ║    - version.json                                    ║
+echo ╠══════════════════════════════════════════════════════╣
+echo ║  GitHub 에 올릴 파일:                               ║
+echo ║    - messenger_allInOne.enc  (최신 버전 .enc)        ║
+echo ║    - version.json            (버전 정보)             ║
+echo ║                                                      ║
+echo ║  ⚠ PAT 평문 / AES 키는 절대 올리지 마세요!          ║
+echo ╚══════════════════════════════════════════════════════╝
 echo.
 pause
