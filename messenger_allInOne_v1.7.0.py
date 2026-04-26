@@ -9147,6 +9147,8 @@ _SC = {
     "border":   "#383850",
     "btn_ok":   "#5C7CFA",
     "btn_skip": "#2A2A3E",
+    "primary2": "#4568F5",
+    "muted":    "#6E6E88",
 }
 
 
@@ -9379,7 +9381,7 @@ def _show_update_dialog(parent: tk.Misc, info) -> bool:
         cursor="hand2",
         width=16,
         pady=9,
-        activebackground=_SC["primary2"] if not force else "#CC4444",
+        activebackground="#4568F5" if not force else "#CC4444",
         activeforeground="#FFFFFF",
     )
     ok_btn.pack(side="left", padx=(0, 10))
