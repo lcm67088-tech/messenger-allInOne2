@@ -142,7 +142,7 @@ pip install pyinstaller pycryptodome
 
 ## GitHub 레포
 
-- **Repository**: https://github.com/lcm67088-tech/messenger-allInOne2
+- **Repository**: https://github.com/ahaaa/messenger-allInOne2
 - **Branch**: main
 - **주요 파일**:
   - `messenger_allInOne.enc` — 배포용 암호화 실행 파일

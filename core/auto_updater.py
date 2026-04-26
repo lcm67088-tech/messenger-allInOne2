@@ -15,7 +15,7 @@ Private GitHub 레포 버전 체크 & 암호화된 파일 자동 다운로드
   v1.5.0 (2026-04-26) — messenger_allInOne 전용으로 적용
     · 기반: auto-update-template v1.5.0
     · 대상 파일: messenger_allInOne.enc
-    · 레포: lcm67088-tech/messenger-allInOne2  브랜치: main
+    · 레포: ahaaa/messenger-allInOne2  브랜치: main
 ════════════════════════════════════════════════════════════════
 """
 
@@ -35,7 +35,7 @@ from pathlib import Path
 # ════════════════════════════════════════════════════════════════
 # ① GitHub 설정
 # ════════════════════════════════════════════════════════════════
-GITHUB_OWNER  = "lcm67088-tech"
+GITHUB_OWNER  = "ahaaa"
 GITHUB_REPO   = "messenger-allInOne2"
 GITHUB_BRANCH = "main"
 

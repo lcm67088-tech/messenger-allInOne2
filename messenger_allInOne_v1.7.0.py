@@ -9166,7 +9166,7 @@ class SplashWindow(tk.Tk):
         ).pack(pady=(4, 2))
 
         tk.Label(inner,
-            text=f"v{APP_VERSION}  ·  lcm67088-tech / messenger-allInOne2",
+            text=f"v{APP_VERSION}  ·  ahaaa / messenger-allInOne2",
             font=("Malgun Gothic", 8),
             bg=_SC["bg"], fg=_SC["sub"],
         ).pack()
