@@ -1,9 +1,9 @@
 {
-  "version": "1.7.0",
-  "release_date": "2026-04-26",
-  "update_note": "v1.7.0 - 자동업데이트 풀시스템 통합 (로그인/스플래시/버전체크/AES암호화)",
+  "version": "1.7.1",
+  "release_date": "2026-04-27",
+  "update_note": "UI/UX 개선 - 다크테마 통일, 폰트 정렬 수정",
   "main_script": "messenger_allInOne.enc",
   "encrypted": true,
   "force_update": false,
-  "enc_sha256": ""
+  "enc_sha256": "3264fd6a3dab3a84ad0fc6690400934a8d81846b078ba1aa62dec42429fac0e3"
 }
