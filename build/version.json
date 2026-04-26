@@ -1,0 +1,9 @@
+{
+  "version": "1.7.0",
+  "release_date": "2026-04-26",
+  "update_note": "v1.7.0: 자동업데이트 풀시스템 통합 (4단계 보안), SplashWindow 추가, 클립보드 완전 제거(SendInput), Semantic Versioning 적용",
+  "main_script": "messenger_allInOne.enc",
+  "encrypted": true,
+  "force_update": false,
+  "enc_sha256": ""
+}
