@@ -220,10 +220,17 @@ def main():
         if pat_value:
             print(f"\n  ✅ PAT 로드됨: {SECRET_FILE.name}  ({pat_value[:8]}...)")
         else:
-            print("\n  ❌ PAT 를 찾을 수 없습니다.")
-            print("     방법 1: python inject_token.py --pat \"ghp_xxxx\"")
-            print(f"    방법 2: {SECRET_FILE} 파일에 PAT=ghp_xxxx 형식으로 저장")
-            sys.exit(1)
+            # 직접 입력 받기
+            print("\n  PAT 를 입력하세요 (입력값은 .secret 에 저장됩니다):")
+            try:
+                pat_value = input("  PAT > ").strip()
+            except (EOFError, KeyboardInterrupt):
+                pat_value = ""
+            if not pat_value:
+                print("  ❌ PAT 입력 취소")
+                sys.exit(1)
+            save_pat_to_secret(pat_value)
+            print(f"  ✅ PAT 저장됨 — 다음부터는 자동으로 로드됩니다.")
 
     # ── 1) PAT 난독화 ───────────────────────────────────────
     print("\n[1/4] PAT XOR+Base64 난독화...")
