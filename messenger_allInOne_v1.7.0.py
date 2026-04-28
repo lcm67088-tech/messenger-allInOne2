@@ -7268,8 +7268,14 @@ class WorkflowExecutor:
                     pyautogui.click(tg_mi_x, tg_mi_y)
                     time.sleep(0.3)
                 else:
-                    # 바로입력: 링크 열린 후 입력창 자동 포커스
-                    time.sleep(0.2)
+                    # 바로입력: 좌표 있으면 클릭, 없으면 Tab으로 포커스 이동
+                    if tg_mi_x and tg_mi_y:
+                        pyautogui.click(tg_mi_x, tg_mi_y)
+                        time.sleep(0.3)
+                    else:
+                        # 입력창 포커스 확보: Tab 키로 포커스 이동 시도
+                        pyautogui.hotkey("tab")
+                        time.sleep(0.3)
                 self._type(msg)
                 time.sleep(tg_type)
                 self._tg_send(send_method, tg_send)
