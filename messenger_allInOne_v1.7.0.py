@@ -7474,8 +7474,21 @@ class WorkflowExecutor:
             time.sleep(d_dialog * 0.4)
 
             # ③ 폴더 경로 입력 → Enter (폴더 이동)  [v1.61 CB-5]
-            pyautogui.hotkey("ctrl", "a")
-            _type_unicode(folder)
+            # 파일 다이얼로그 주소창도 클립보드 방식으로 입력
+            try:
+                import tkinter as _tk2
+                _r2 = _tk2.Tk(); _r2.withdraw()
+                _r2.clipboard_clear()
+                _r2.clipboard_append(folder)
+                _r2.update()
+                pyautogui.hotkey("ctrl", "a")
+                time.sleep(0.1)
+                pyautogui.hotkey("ctrl", "v")
+                time.sleep(0.2)
+                _r2.destroy()
+            except Exception:
+                pyautogui.hotkey("ctrl", "a")
+                _type_unicode(folder)
             time.sleep(d_dialog * 0.3)
             pyautogui.press("return")
             time.sleep(d_folder)       # 폴더 이동 대기
@@ -7491,11 +7504,26 @@ class WorkflowExecutor:
                     "ERROR")
                 raise RuntimeError("tg_filename_input_coord 미설정")
             pyautogui.click(fn_x, fn_y)
-            time.sleep(d_open * 0.5)
+            time.sleep(max(d_open * 0.5, 0.5))  # 최소 0.5초 대기
 
             # ⑤ 파일명 입력 → Enter (파일 선택+열기)  [v1.61 CB-6]
-            pyautogui.hotkey("ctrl", "a")
-            _type_unicode(fname)
+            # 파일 다이얼로그는 클립보드 붙여넣기가 SendInput보다 안정적
+            import ctypes as _ct
+            try:
+                import tkinter as _tk
+                _r = _tk.Tk(); _r.withdraw()
+                _r.clipboard_clear()
+                _r.clipboard_append(fname)
+                _r.update()
+                pyautogui.hotkey("ctrl", "a")
+                time.sleep(0.1)
+                pyautogui.hotkey("ctrl", "v")
+                time.sleep(0.2)
+                _r.destroy()
+            except Exception:
+                # 클립보드 실패 시 SendInput 폴백
+                pyautogui.hotkey("ctrl", "a")
+                _type_unicode(fname)
             time.sleep(d_open * 0.3)
             pyautogui.press("return")
             time.sleep(d_open)         # 파일 열기 완료 대기
